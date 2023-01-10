@@ -1,6 +1,6 @@
 # LocateCar - Locadora de veículos
 
-## Criar uma aplicação que gerencie o aluguel de veículos, onde cada item abaixo seja considerado:
+### Criar uma aplicação que gerencie o aluguel de veículos, onde cada item abaixo seja considerado:
 
 #### Itens obrigatórios
 
