@@ -17,6 +17,7 @@ bin/
 .metadata/
 
 # IntelliJ
+.idea/misc.xml
 .idea/
 out/
 *.iml
