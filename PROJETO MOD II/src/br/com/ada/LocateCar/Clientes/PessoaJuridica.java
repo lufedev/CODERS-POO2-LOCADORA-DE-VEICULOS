@@ -14,6 +14,13 @@ public class PessoaJuridica extends Cliente{
         this.nomeFantasia = nomeFantasia;
     }
 
+    public PessoaJuridica(long id, String cnpj, String razaoSocial, String nomeFantasia) {
+        super(id);
+        this.cnpj = cnpj;
+        this.razaoSocial = razaoSocial;
+        this.nomeFantasia = nomeFantasia;
+    }
+
     protected String getCnpj() {
         return cnpj;
     }
@@ -49,6 +56,16 @@ public class PessoaJuridica extends Cliente{
     @Override
     public int hashCode() {
         return Objects.hash(super.hashCode(), cnpj, razaoSocial, nomeFantasia);
+    }
+
+    @Override
+    public String toString() {
+        return "PessoaJuridica{" +
+                "ID='" + id + '\'' +
+                ", nomeFantasia='" + nomeFantasia + '\'' +
+                ", razaoSocial='" + razaoSocial + '\'' +
+                ", cnpj='" + cnpj + '\'' +
+                '}'  + "\n";
     }
 }
 //Empresa - Ian

@@ -14,6 +14,10 @@ public abstract class Cliente {
         this.telefone = telefone;
     }
 
+    public Cliente(long id) {
+        this.id = id;
+    }
+
     protected long getId() {
         return id;
     }

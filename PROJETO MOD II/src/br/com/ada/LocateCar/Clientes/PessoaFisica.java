@@ -18,6 +18,13 @@ public class PessoaFisica extends Cliente {
         this.nome = nome;
     }
 
+    public PessoaFisica(long id, String cpf, String cnh, String nome) {
+        super(id);
+        this.cpf = cpf;
+        this.cnh = cnh;
+        this.nome = nome;
+    }
+
     protected String getCpf() {
         return cpf;
     }
@@ -53,6 +60,16 @@ public class PessoaFisica extends Cliente {
     @Override
     public int hashCode() {
         return Objects.hash(super.hashCode(), cpf, cnh);
+    }
+
+    @Override
+    public String toString() {
+        return "PessoaFisica{" +
+                "ID='" + id  + '\'' +
+                ", nome ='" + nome + '\'' +
+                ", cpf ='" + cpf + '\'' +
+                ", cnh =" + cnh +
+                '}' + "\n";
     }
 }
 //Pessoa - Ian
