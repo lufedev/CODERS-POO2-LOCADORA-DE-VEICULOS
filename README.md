@@ -1,3 +1,14 @@
+# CODERS-POO2-LOCADORA-DE-VEICULOS
+Trabalho do projeto Let's Code
+
+###ToDo list###
+
+1- loop menu
+2- tratamento errros e excessoes
+3- checar modelo de projeto
+
+
+
 # LocateCar - Locadora de veículos
 
 ### Criar uma aplicação que gerencie o aluguel de veículos, onde cada item abaixo seja considerado:
@@ -43,7 +54,7 @@
 | Carro            | R$ 150,00     |
 | Caminhão         | R$ 200,00     |
 
- 	
+
 ## Entregas
     - O projeto deverá ser em grupo de 5 pessoas;
     - O projeto deverá ser entregue no github;
