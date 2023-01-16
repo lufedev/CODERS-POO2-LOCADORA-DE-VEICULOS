@@ -3,16 +3,11 @@ package br.com.ada.grupo3.locadora.model;
 public class Cliente implements Entidade {
 
     private String nome;
-
     private String documento;
-
     private String email;
-
-    private Endereco endenreco;
-
+    private Endereco endereco;
     private Telefone telefone;
-
-    private TipoCliente tipoCliente;
+    private final TipoCliente tipoCliente;
 
     public Cliente(String nome, String documento, TipoCliente tipoCliente) {
         this.nome = nome;
@@ -20,12 +15,12 @@ public class Cliente implements Entidade {
         this.tipoCliente = tipoCliente;
     }
 
-    public Cliente(String nome, String documento, TipoCliente tipoCliente, String email, Endereco endenreco, Telefone telefone) {
+    public Cliente(String nome, String documento, TipoCliente tipoCliente, String email, Endereco endereco, Telefone telefone) {
         this.nome = nome;
         this.documento = documento;
         this.tipoCliente = tipoCliente;
         this.email = email;
-        this.endenreco = endenreco;
+        this.endereco = endereco;
         this.telefone = telefone;
     }
 
@@ -50,8 +45,8 @@ public class Cliente implements Entidade {
         this.email = email;
     }
 
-    public void setEndenreco(Endereco endenreco) {
-        this.endenreco = endenreco;
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
     }
 
     public void setTelefone(Telefone telefone) {

@@ -21,7 +21,7 @@ public class RepositorioGenericoAbstract<T extends Entidade> implements Reposito
 
     @Override
     public void remover(T entidade) {
-        this.entidades.remove(entidade);
+        if (!entidades.isEmpty()) this.entidades.remove(entidade.getId());
     }
 
     @Override

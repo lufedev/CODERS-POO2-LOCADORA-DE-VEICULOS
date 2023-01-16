@@ -3,30 +3,29 @@ package br.com.ada.grupo3.locadora.model;
 public class Agencia implements Entidade {
 
     private final String nome;
-    private final String logradouro;
+    private final Endereco endereco;
 
-    public Agencia(String nome, String logradouro) {
+    public Agencia(String nome, Endereco endereco) {
         this.nome = nome;
-        this.logradouro = logradouro;
+        this.endereco = endereco;
     }
 
     public String getId() {
         return nome;
     }
 
-    public String getNome() {
-        return nome;
-    }
-
     public String getLogradouro() {
-        return logradouro;
+        return endereco.getLogradouro();
     }
 
     @Override
     public String toString() {
         return "Agencia{" +
                 "nome='" + nome + '\'' +
-                ", logradouro='" + logradouro + '\'' +
+                ", logradouro='" + endereco.getLogradouro() + '\'' +
+                ", numero ='" + endereco.getNumero() + '\'' +
+                ", cidade ='" + endereco.getCidade() + '\'' +
+                ", uf ='" + endereco.getUf() + '\'' +
                 '}';
     }
 }

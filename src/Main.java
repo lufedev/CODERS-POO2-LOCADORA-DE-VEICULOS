@@ -1,5 +1,6 @@
 import br.com.ada.grupo3.locadora.model.Agencia;
 import br.com.ada.grupo3.locadora.model.Cliente;
+import br.com.ada.grupo3.locadora.model.Endereco;
 import br.com.ada.grupo3.locadora.model.TipoCliente;
 import br.com.ada.grupo3.locadora.persistence.AgenciaEmMemoriaRepository;
 import br.com.ada.grupo3.locadora.persistence.ClienteEmMemoriaRepository;
@@ -10,6 +11,7 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
+
         ClienteEmMemoriaRepository clientRepository = new ClienteEmMemoriaRepository();
         TipoCliente pf = new TipoCliente("Pessoa Fisica", new BigDecimal(5), 3);
         Cliente c1 = new Cliente("Vinicius", "63513431007", pf);
@@ -29,7 +31,7 @@ public class Main {
         System.out.println(ney.getNome());
 
         AgenciaEmMemoriaRepository agenciaRepository = new AgenciaEmMemoriaRepository();
-        agenciaRepository.salvar(new Agencia("AG1", "Sao Paulo"));
+        agenciaRepository.salvar(new Agencia("AG1", new Endereco("Alameda Santos", 200, "São Paulo", "SP")));
         Agencia ag1 = agenciaRepository.buscarPeloId("AG1");
         System.out.println(ag1);
     }

@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AgenciaEmMemoriaRepository extends RepositorioGenericoAbstract<Agencia> implements AgenciaRepository {
+
     @Override
     public List<Agencia> buscarPeloLogradouro(String parteLogradouro) {
         List<Agencia> agenciasComParteDesseNome = new ArrayList<>();

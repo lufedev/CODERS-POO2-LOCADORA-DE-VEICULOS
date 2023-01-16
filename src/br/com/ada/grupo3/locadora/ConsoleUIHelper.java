@@ -5,6 +5,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class ConsoleUIHelper {
+
     public static void clearScreen() {
         System.out.print("\033[H\033[2J");
         System.out.flush();
@@ -59,6 +60,20 @@ public class ConsoleUIHelper {
         do {
             try {
                 number = sc.nextBigDecimal();
+            } catch (InputMismatchException e) {
+                number = null;
+            }
+        } while (number == null);
+        return number;
+    }
+
+    public static Integer askInt(String message) {
+        System.out.printf("%s%n# : ", message);
+        Scanner sc = new Scanner(System.in);
+        Integer number;
+        do {
+            try {
+                number = sc.nextInt();
             } catch (InputMismatchException e) {
                 number = null;
             }
