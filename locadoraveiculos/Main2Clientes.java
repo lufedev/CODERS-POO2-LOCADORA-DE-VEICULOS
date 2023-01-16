@@ -8,6 +8,5 @@ public class Main2Clientes {
         Scanner sc = new Scanner(System.in);
         ClientesMenu menuCliente = new ClientesMenu();
         menuCliente.menuClientes(sc);
-
     }
 }

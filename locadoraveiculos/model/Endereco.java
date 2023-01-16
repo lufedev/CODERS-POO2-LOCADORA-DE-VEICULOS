@@ -20,12 +20,12 @@ public class Endereco {
     public Endereco(/*TipoEndereco tipo,*/ String logradouro, String bairro, String numero, String complemento, String cep, String cidade, String uf) {
 //        this.tipo = tipo;
         this.logradouro = logradouro;
-        this.bairro = bairro;
+        this.bairro = bairro;//tirar
         this.cep = cep;
         this.numero = numero;
-        this.complemento = complemento;
+        this.complemento = complemento;//tirar
         this.cidade = cidade;
-        this.uf = uf;
+        this.uf = uf; //tirar
     }
 
 //    public TipoEndereco getTipo() {

@@ -17,7 +17,7 @@ public class ClienteController extends ClienteEmMemoriaRepository{
             case "1":
                 cliente.setNome(ConsoleUIHelper.askSimpleInput("Digite o nome: "));break;
             case "2":
-                cliente.setDocumento(ConsoleUIHelper.askSimpleInput("Digite o documento: "));break;
+                cliente.setDocumento(ConsoleUIHelper.askSimpleInput("Digite o Documento: "));break;
             case "3":
                 cliente.setEmail(cadastrarEmail());break;
             case "4":

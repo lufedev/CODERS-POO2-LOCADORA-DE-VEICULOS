@@ -10,7 +10,7 @@ public class ClienteEmMemoriaRepository extends RepositorioGenericoAbstract<Clie
         TipoCliente tipoCliente = ClienteController.cadastrarTipoCliente();
         List<String> nomeDoc = ClienteController.cadastrarNomeEDocumento();
         Cliente cliente = new Cliente(nomeDoc.get(0), nomeDoc.get(1), tipoCliente);
-        if (cadastroCompleto) ClienteController.cadastrarInfosExtras(cliente);
+        if (cadastroCompleto) cliente = ClienteController.cadastrarInfosExtras(cliente);
         return cliente;
     }
     @Override
