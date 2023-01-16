@@ -64,9 +64,6 @@ public class Cliente implements Entidade {
 
     @Override
     public String toString() {
-        return "Cliente{" +
-                "nome='" + nome + '\'' +
-                ", documento='" + documento + '\'' +
-                '}';
+        return "Cliente{" + "nome='" + nome + '\'' + ", documento='" + documento + '\'' + '}';
     }
 }
