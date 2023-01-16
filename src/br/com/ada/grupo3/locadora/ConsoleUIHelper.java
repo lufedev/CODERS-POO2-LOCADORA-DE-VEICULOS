@@ -1,4 +1,4 @@
-package br.com.ada.projeto.locadoraveiculos;
+package br.com.ada.grupo3.locadora;
 
 import java.math.BigDecimal;
 import java.util.InputMismatchException;
@@ -30,7 +30,7 @@ public class ConsoleUIHelper {
     public static int askChooseOption(String message, String... options) {
         System.out.printf("%s%n# : ", message);
         for (int i = 0; i < options.length; i++) {
-            System.out.printf("%d - %s%n# : ", i+1, options[i]);
+            System.out.printf("%d - %s%n# : ", i + 1, options[i]);
 
         }
         Scanner sc = new Scanner(System.in);
@@ -86,7 +86,7 @@ public class ConsoleUIHelper {
             String row = text.substring(0, limit);
             text = text.substring(row.length());
             int padding = (width - row.length()) / 2;
-            row = "#" + " ".repeat(padding-1) + row;
+            row = "#" + " ".repeat(padding - 1) + row;
             row = row + " ".repeat(width - row.length() - 1) + "#";
             System.out.println(row);
             count++;
@@ -109,14 +109,14 @@ public class ConsoleUIHelper {
     }
 
     public static String columnPaddingLeft(String text, int width, char pad) {
-        while(text.length() < width){
+        while (text.length() < width) {
             text = String.valueOf(pad).concat(text);
         }
         return text;
     }
 
     public static String columnPaddingRight(String text, int width, char pad) {
-        while(text.length() < width){
+        while (text.length() < width) {
             text = text.concat(String.valueOf(pad));
         }
         return text;

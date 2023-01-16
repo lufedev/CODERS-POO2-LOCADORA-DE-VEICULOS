@@ -1,10 +1,8 @@
-package br.com.ada.projeto.locadoraveiculos;
-
-import br.com.ada.projeto.locadoraveiculos.model.Agencia;
-import br.com.ada.projeto.locadoraveiculos.model.Cliente;
-import br.com.ada.projeto.locadoraveiculos.model.TipoCliente;
-import br.com.ada.projeto.locadoraveiculos.persistence.AgenciaEmMemoriaRepository;
-import br.com.ada.projeto.locadoraveiculos.persistence.ClienteEmMemoriaRepository;
+import br.com.ada.grupo3.locadora.model.Agencia;
+import br.com.ada.grupo3.locadora.model.Cliente;
+import br.com.ada.grupo3.locadora.model.TipoCliente;
+import br.com.ada.grupo3.locadora.persistence.AgenciaEmMemoriaRepository;
+import br.com.ada.grupo3.locadora.persistence.ClienteEmMemoriaRepository;
 
 import java.math.BigDecimal;
 import java.util.List;

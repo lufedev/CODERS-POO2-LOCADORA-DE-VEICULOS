@@ -1,4 +1,4 @@
-package br.com.ada.projeto.locadoraveiculos.model;
+package br.com.ada.grupo3.locadora.model;
 
 import java.time.LocalDateTime;
 import java.util.UUID;

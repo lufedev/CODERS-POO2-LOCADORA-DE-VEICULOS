@@ -1,6 +1,4 @@
-package br.com.ada.projeto.locadoraveiculos.persistence;
-
-import br.com.ada.projeto.locadoraveiculos.model.Agencia;
+package br.com.ada.grupo3.locadora.persistence;
 
 public interface RepositoryGenerico<T> {
 

@@ -1,5 +1,6 @@
-package br.com.ada.projeto.locadoraveiculos;
-import br.com.ada.projeto.locadoraveiculos.view.ClientesMenu;
+package br.com.ada.grupo3.locadora;
+
+import br.com.ada.grupo3.locadora.view.ClientesMenu;
 
 import java.util.Scanner;
 

@@ -1,10 +1,9 @@
-package br.com.ada.projeto.locadoraveiculos.model;
+package br.com.ada.grupo3.locadora.model;
 
 import java.util.Objects;
 
 public class Telefone {
 
-    //    public TipoTelefone tipo;
     public String ddi;
     public String ddd;
     public String numero;
@@ -14,19 +13,10 @@ public class Telefone {
     }//LEITURA JACKSON
 
     public Telefone(/*TipoTelefone tipo,*/ String ddi, String ddd, String numero) {
-//        this.tipo = tipo;
         this.ddi = ddi;
         this.ddd = ddd;
         this.numero = numero;
     }
-
-//    public TipoTelefone getTipo() {
-//        return tipo;
-//    }
-//
-//    public void setTipo(TipoTelefone tipo) {
-//        this.tipo = tipo;
-//    }
 
     public String getDdi() {
         return ddi;
@@ -53,16 +43,12 @@ public class Telefone {
     }
 
     public String numeroImpressaoReduzida() {
-        return String.format(/*tipo + " " +*/ ddi + "(" + ddd + ")" + numero);
+        return String.format(ddi + "(" + ddd + ")" + numero);
     }
 
     @Override
     public String toString() {
-        return String.format(
-                "Tipo: %s \n" +
-                        "DDI: %s \n" +
-                        "DDD: %s \n" +
-                        "Número: %s \n",/* tipo,*/ ddi, ddd, numero);
+        return String.format("Tipo: %s \n" + "DDI: %s \n" + "DDD: %s \n" + "Número: %s \n", ddi, ddd, numero);
     }
 
     @Override

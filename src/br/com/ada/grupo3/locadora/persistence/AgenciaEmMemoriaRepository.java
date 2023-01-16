@@ -1,16 +1,15 @@
-package br.com.ada.projeto.locadoraveiculos.persistence;
+package br.com.ada.grupo3.locadora.persistence;
 
-import br.com.ada.projeto.locadoraveiculos.model.Agencia;
-import br.com.ada.projeto.locadoraveiculos.model.Cliente;
+import br.com.ada.grupo3.locadora.model.Agencia;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class AgenciaEmMemoriaRepository extends RepositorioGenericoAbstract<Agencia> implements AgenciaRepository{
+public class AgenciaEmMemoriaRepository extends RepositorioGenericoAbstract<Agencia> implements AgenciaRepository {
     @Override
     public List<Agencia> buscarPeloLogradouro(String parteLogradouro) {
         List<Agencia> agenciasComParteDesseNome = new ArrayList<>();
-        for (Agencia agencia: entidades.values()) {
+        for (Agencia agencia : entidades.values()) {
             if (agencia.getLogradouro().contains(parteLogradouro)) {
                 agenciasComParteDesseNome.add(agencia);
             }

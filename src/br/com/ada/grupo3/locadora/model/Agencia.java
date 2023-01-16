@@ -1,9 +1,9 @@
-package br.com.ada.projeto.locadoraveiculos.model;
+package br.com.ada.grupo3.locadora.model;
 
 public class Agencia implements Entidade {
 
-    private String nome;
-    private String logradouro;
+    private final String nome;
+    private final String logradouro;
 
     public Agencia(String nome, String logradouro) {
         this.nome = nome;

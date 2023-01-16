@@ -1,11 +1,10 @@
-package br.com.ada.projeto.locadoraveiculos.model;
+package br.com.ada.grupo3.locadora.model;
 
 public class Veiculo implements Entidade {
 
     private String placa;
     private String modelo;
     private String fabricante;
-
     private boolean disponível;
     private TipoVeiculo tipo;
 
@@ -16,7 +15,6 @@ public class Veiculo implements Entidade {
         this.tipo = tipo;
         this.disponível = true;
     }
-
 
     @Override
     public String getId() {

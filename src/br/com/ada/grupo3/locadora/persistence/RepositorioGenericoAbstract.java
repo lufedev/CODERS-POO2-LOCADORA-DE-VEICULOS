@@ -1,7 +1,6 @@
-package br.com.ada.projeto.locadoraveiculos.persistence;
+package br.com.ada.grupo3.locadora.persistence;
 
-import br.com.ada.projeto.locadoraveiculos.model.Cliente;
-import br.com.ada.projeto.locadoraveiculos.model.Entidade;
+import br.com.ada.grupo3.locadora.model.Entidade;
 
 import java.util.Collections;
 import java.util.HashMap;
@@ -16,10 +15,14 @@ public class RepositorioGenericoAbstract<T extends Entidade> implements Reposito
     }
 
     @Override
-    public void salvar(T entidade) {this.entidades.put(entidade.getId(), entidade);}
+    public void salvar(T entidade) {
+        this.entidades.put(entidade.getId(), entidade);
+    }
 
     @Override
-    public void remover(T entidade) {this.entidades.remove(entidade);}
+    public void remover(T entidade) {
+        this.entidades.remove(entidade);
+    }
 
     @Override
     public T buscarPeloId(String identificador) {

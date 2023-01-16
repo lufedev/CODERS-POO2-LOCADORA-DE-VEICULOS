@@ -1,10 +1,9 @@
-package br.com.ada.projeto.locadoraveiculos.model;
+package br.com.ada.grupo3.locadora.model;
 
 import java.util.Objects;
 
 public class Endereco {
 
-    //    private TipoEndereco tipo;
     private String logradouro;
     private String bairro;
     private String cep;
@@ -13,12 +12,11 @@ public class Endereco {
     private String cidade;
     private String uf;
 
-    private Endereco(){
+    private Endereco() {
 
     }//LEITURA JACKSON
 
-    public Endereco(/*TipoEndereco tipo,*/ String logradouro, String bairro, String numero, String complemento, String cep, String cidade, String uf) {
-//        this.tipo = tipo;
+    public Endereco(String logradouro, String bairro, String numero, String complemento, String cep, String cidade, String uf) {
         this.logradouro = logradouro;
         this.bairro = bairro;//tirar
         this.cep = cep;
@@ -27,14 +25,6 @@ public class Endereco {
         this.cidade = cidade;
         this.uf = uf; //tirar
     }
-
-//    public TipoEndereco getTipo() {
-//        return tipo;
-//    }
-//
-//    public void setTipo(TipoEndereco tipo) {
-//        this.tipo = tipo;
-//    }
 
     public String getLogradouro() {
         return logradouro;
@@ -103,7 +93,7 @@ public class Endereco {
                         "CEP: %s \n" +
                         "Complemento: %s \n" +
                         "Cidade: %s \n" +
-                        "UF: %s \n",/* tipo,*/ logradouro, bairro, numero, cep, complemento, cidade, uf);
+                        "UF: %s \n", logradouro, bairro, numero, cep, complemento, cidade, uf);
     }
 
     @Override
