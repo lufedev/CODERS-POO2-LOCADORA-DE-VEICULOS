@@ -1,5 +1,7 @@
 package br.com.ada.grupo3.locadora.model;
 
+import java.util.Collection;
+
 public class Agencia implements Entidade {
 
     private final String nome;
@@ -27,5 +29,9 @@ public class Agencia implements Entidade {
                 ", cidade ='" + endereco.getCidade() + '\'' +
                 ", uf ='" + endereco.getUf() + '\'' +
                 '}';
+    }
+
+    public String getNome() {
+        return nome;
     }
 }

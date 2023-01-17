@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface VeiculoRepository extends GenericRepository<Veiculo> {
 
-    List<Veiculo> buscarPeloModelo(String modelo);
+    List<Veiculo> buscarPeloModelo(String parteModelo);
 }

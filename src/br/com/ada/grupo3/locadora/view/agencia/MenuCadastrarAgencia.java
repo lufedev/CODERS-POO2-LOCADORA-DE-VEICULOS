@@ -6,10 +6,10 @@ import br.com.ada.grupo3.locadora.model.Endereco;
 import br.com.ada.grupo3.locadora.view.CapturadorDeEntrada;
 import br.com.ada.grupo3.locadora.view.MenuAbstrato;
 
-public class MenuAdicionarAgencia extends MenuAbstrato {
+public class MenuCadastrarAgencia extends MenuAbstrato {
 
     private final AgenciaManager gerenciadorDeAgencia;
-    public MenuAdicionarAgencia(AgenciaManager gerenciadorDeAgencia) {
+    public MenuCadastrarAgencia(AgenciaManager gerenciadorDeAgencia) {
         super("Adicionar agencia");
         this.gerenciadorDeAgencia = gerenciadorDeAgencia;
     }

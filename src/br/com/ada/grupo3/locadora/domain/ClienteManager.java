@@ -1,5 +1,6 @@
 package br.com.ada.grupo3.locadora.domain;
 
+import br.com.ada.grupo3.locadora.persistence.ClienteRepository;
 import br.com.ada.grupo3.locadora.zold.ConsoleUIHelper;
 import br.com.ada.grupo3.locadora.model.Endereco;
 import br.com.ada.grupo3.locadora.model.Cliente;
@@ -11,6 +12,8 @@ import java.math.BigDecimal;
 import java.util.List;
 
 public class ClienteManager extends ClienteRepositoryInMemory {
+
+    public ClienteManager(ClienteRepository clienteRepository) {}
 
     public static void alterarInfos(Cliente cliente) {
         String escolha = Integer.toString(ConsoleUIHelper.askChooseOption("O que deseja alterar?", "Nome ", "documento", "E-mail", "Telefone", "Endereço"));

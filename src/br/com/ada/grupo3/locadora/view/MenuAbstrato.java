@@ -14,7 +14,7 @@ public abstract class MenuAbstrato implements Menu {
     }
 
     @Override
-    public final void agir() {
+    public void agir() {
         exibirComSeparador();
         acao();
     }

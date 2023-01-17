@@ -30,4 +30,7 @@ public class Aluguel implements Entidade {
         return id.toString();
     }
 
+    public Cliente getCliente() {
+        return cliente;
+    }
 }

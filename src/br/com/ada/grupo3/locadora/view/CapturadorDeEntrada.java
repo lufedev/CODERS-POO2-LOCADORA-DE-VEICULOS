@@ -1,5 +1,8 @@
 package br.com.ada.grupo3.locadora.view;
 
+import br.com.ada.grupo3.locadora.model.TipoVeiculo;
+
+import java.util.List;
 import java.util.Scanner;
 
 public class CapturadorDeEntrada {
@@ -8,8 +11,7 @@ public class CapturadorDeEntrada {
 
     public static String capturarString(String nomeCampo) {
         System.out.print("Informar o %s: ".formatted(nomeCampo));
-        String entrada = scanner.nextLine();
-        return entrada;
+        return scanner.nextLine();
     }
 
     public static Integer capturarInteger(String nomeCampo) {
@@ -32,6 +34,19 @@ public class CapturadorDeEntrada {
             }
         }
         return retorno;
+    }
+
+    public static TipoVeiculo capturaSelecao(List<TipoVeiculo> tiposDeVeiculos) {
+        for (int i = 0; i < tiposDeVeiculos.size(); i++) {
+            System.out.println(i + ". " + tiposDeVeiculos.get(i).getDescricao());
+        }
+        int selecao = capturarInteger("Selecione um tipo de veículo: ");
+
+        while (selecao >= tiposDeVeiculos.size()) {
+            System.out.println("Seleção inválida!");
+            selecao = capturarInteger("Selecione um tipo de veículo: ");
+        }
+        return tiposDeVeiculos.get(selecao);
     }
 }
 

@@ -11,4 +11,8 @@ public class TipoVeiculo {
         this.descricao = descricao;
         this.tarifa = tarifa;
     }
+
+    public String getDescricao() {
+        return descricao;
+    }
 }
