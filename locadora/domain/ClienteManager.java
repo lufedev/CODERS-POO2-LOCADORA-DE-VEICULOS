@@ -13,9 +13,9 @@ public class ClienteManager extends ClienteEmMemoriaRepository {
     private final Mensagens mensagens;
     private final ClienteEmMemoriaRepository clienteEmMemoriaRepository;
 
-    public ClienteManager(Mensagens mensagens, ClienteEmMemoriaRepository clienteEmMemoriaRepository) {
-        this.mensagens = mensagens;
-        this.clienteEmMemoriaRepository = clienteEmMemoriaRepository;
+    public ClienteManager() {
+        this.mensagens = new Mensagens();
+        this.clienteEmMemoriaRepository = new ClienteEmMemoriaRepository();
     }
 
     public Cliente alterarCliente(Cliente cliente) {
@@ -50,7 +50,10 @@ public class ClienteManager extends ClienteEmMemoriaRepository {
     }
 
     private TipoCliente cadastrarTipoCliente() {
-        int resposta = mensagens.pessoaFisicaOuJuridica();
+        int resposta = -9;
+        do {
+            resposta = mensagens.pessoaFisicaOuJuridica();
+        }while(resposta <0 && resposta > 3);
         return (resposta == 1) ?
                 new TipoCliente("Pessoa Fisica", BigDecimal.valueOf(5), 5) :
                 new TipoCliente("Pessoa Juridica", BigDecimal.valueOf(10), 3);
@@ -85,7 +88,11 @@ public class ClienteManager extends ClienteEmMemoriaRepository {
                 int listaSize = clienteEmMemoriaRepository.getEntidades().size();
                 String id = mensagens.documento();
                 Cliente cl = clienteEmMemoriaRepository.buscarPeloId(id);
-                clienteEmMemoriaRepository.remover(cl);
+                try {
+                    clienteEmMemoriaRepository.remover(cl);
+                }catch (NullPointerException e){
+                    System.err.println(mensagens.falhaOperacao());
+                }
                 if (listaSize > clienteEmMemoriaRepository.getEntidades().size()) System.out.println(mensagens.operacaoSucesso());
                 else System.out.println(mensagens.falhaOperacao());
             } else System.out.println(mensagens.listaVazia());
@@ -95,8 +102,12 @@ public class ClienteManager extends ClienteEmMemoriaRepository {
         if (!clienteEmMemoriaRepository.getEntidades().isEmpty()) {
             String id = mensagens.documento();
             Cliente cliente = clienteEmMemoriaRepository.getEntidades().get(id);
-            clienteEmMemoriaRepository.salvar(alterarCliente(cliente));
-            System.out.println(mensagens.operacaoSucesso());
+            try {
+                clienteEmMemoriaRepository.salvar(alterarCliente(cliente));
+                System.out.println(mensagens.operacaoSucesso());
+            }catch (NullPointerException e){
+                System.err.println(mensagens.falhaOperacao());
+            }
         } else System.out.println(mensagens.listaVazia());
     }
 
@@ -109,9 +120,9 @@ public class ClienteManager extends ClienteEmMemoriaRepository {
     public void menuClienteBusarId(){
         if (!clienteEmMemoriaRepository.getEntidades().isEmpty()) {
             String id = mensagens.documento();
-            String cliente = String.valueOf(clienteEmMemoriaRepository.buscarPeloId(id));
-            if (cliente.length() <= 0)System.out.println(cliente);
-            else System.out.println(mensagens.falhaOperacao());
+            Cliente cliente = clienteEmMemoriaRepository.buscarPeloId(id);
+            if (cliente==null) System.out.println(mensagens.falhaOperacao());
+            else System.out.println(cliente);
         } else System.out.println(mensagens.listaVazia());
     }
     public void menuClienteCadastrar(){

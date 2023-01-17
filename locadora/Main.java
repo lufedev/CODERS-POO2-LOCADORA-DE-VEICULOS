@@ -5,9 +5,11 @@ import br.com.ada.grupo3.locadora.model.Cliente;
 import br.com.ada.grupo3.locadora.model.TipoCliente;
 //import br.com.ada.grupo3.locadora.persistence.AgenciaEmMemoriaRepository;
 import br.com.ada.grupo3.locadora.persistence.ClienteEmMemoriaRepository;
+import br.com.ada.grupo3.locadora.view.cliente.MenuClienteFactory;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
 
@@ -34,5 +36,28 @@ public class Main {
 //        agenciaRepository.salvar(new Agencia("AG1", "Sao Paulo"));
 //        Agencia ag1 = agenciaRepository.buscarPeloId("AG1");
 //        System.out.println(ag1);
+
+        Scanner sc = new Scanner(System.in);
+        MenuClienteFactory menu = new MenuClienteFactory();
+        TipoCliente tc = new TipoCliente("Pessoa Fisica", BigDecimal.valueOf(5), 5);
+        Cliente cl1 = new Cliente("Ian", "12345", tc);
+        Cliente cl2 = new Cliente("Ana", "54321", tc);
+        Cliente cl3 = new Cliente("Joao", "98765", tc);
+        Cliente cl4 = new Cliente("Maria", "56789", tc);
+        ClienteEmMemoriaRepository cr = new ClienteEmMemoriaRepository();
+        cr.salvar(cl1);
+        cr.salvar(cl2);
+        cr.salvar(cl3);
+        cr.salvar(cl4);
+        boolean continuar;
+        do {
+            menu.create().exibir();
+            menu.create().agir();
+            System.out.println("deseja continuar?");
+            int resp = sc.nextInt();
+            continuar = (resp==1) ? true : false;
+        }while(continuar);
+
+
     }
 }

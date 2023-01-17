@@ -17,5 +17,5 @@ public class TipoCliente {
     }
 
     @Override
-    public String toString() {return "TipoCliente{" + descricao + '\'' + '}';}
+    public String toString() {return descricao ;}
 }

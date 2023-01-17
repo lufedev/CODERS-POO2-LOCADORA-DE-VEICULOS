@@ -8,7 +8,7 @@ public class MenuRemoverCliente extends MenuAbstrato {
     private final ClienteManager gerenciadorDeCliente;
 
     public MenuRemoverCliente(ClienteManager gerenciadorDeCliente) {
-        super("Menu remover cliente:");
+        super("Remover cliente:");
         this.gerenciadorDeCliente = gerenciadorDeCliente;
     }
 

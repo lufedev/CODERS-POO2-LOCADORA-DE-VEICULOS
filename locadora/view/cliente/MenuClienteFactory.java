@@ -10,8 +10,8 @@ public class MenuClienteFactory implements MenuFactory {
 
     private final ClienteManager gerenciadorDeCliente;
 
-    public MenuClienteFactory(ClienteManager gerenciadorDeCliente) {
-        this.gerenciadorDeCliente = gerenciadorDeCliente;
+    public MenuClienteFactory() {
+        this.gerenciadorDeCliente = new ClienteManager();
     }
 
     @Override
