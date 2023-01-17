@@ -1,5 +1,4 @@
-package br.com.ada.projeto.locadoraveiculos;
-
+package br.com.ada.grupo3.locadora.Util;
 import java.math.BigDecimal;
 import java.util.InputMismatchException;
 import java.util.Scanner;

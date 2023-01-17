@@ -1,4 +1,4 @@
-package br.com.ada.projeto.locadoraveiculos.model;
+package br.com.ada.grupo3.locadora.model;
 
 import java.math.BigDecimal;
 
@@ -17,11 +17,5 @@ public class TipoCliente {
     }
 
     @Override
-    public String toString() {
-        return "TipoCliente{" +
-                "descricao='" + descricao + '\'' +
-                ", desconto=" + desconto +
-                ", quantidadeDiasParaDesconto=" + quantidadeDiasParaDesconto +
-                '}';
-    }
+    public String toString() {return "TipoCliente{" + descricao + '\'' + '}';}
 }

@@ -1,4 +1,4 @@
-package br.com.ada.projeto.locadoraveiculos.model;
+package br.com.ada.grupo3.locadora.model;
 
 public class Cliente implements Entidade {
 
@@ -14,6 +14,9 @@ public class Cliente implements Entidade {
 
     private TipoCliente tipoCliente;
 
+    public Cliente() {
+    }
+
     public Cliente(String nome, String documento, TipoCliente tipoCliente) {
         this.nome = nome;
         this.documento = documento;
@@ -23,7 +26,7 @@ public class Cliente implements Entidade {
     public Cliente(String nome, String documento, TipoCliente tipoCliente, String email, Endereco endenreco, Telefone telefone) {
         this.nome = nome;
         this.documento = documento;
-            this.tipoCliente = tipoCliente;
+        this.tipoCliente = tipoCliente;
         this.email = email;
         this.endenreco = endenreco;
         this.telefone = telefone;
@@ -62,11 +65,16 @@ public class Cliente implements Entidade {
         this.documento = documento;
     }
 
+    public void setTipoCliente(TipoCliente tipoCliente) {
+        this.tipoCliente = tipoCliente;
+    }
+
     @Override
     public String toString() {
         return "Cliente{" +
                 "nome='" + nome + '\'' +
                 ", documento='" + documento + '\'' +
+                ", tipoCliente=" + tipoCliente +
                 '}';
     }
 }
