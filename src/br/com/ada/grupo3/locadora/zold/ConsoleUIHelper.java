@@ -1,4 +1,4 @@
-package br.com.ada.grupo3.locadora;
+package br.com.ada.grupo3.locadora.zold;
 
 import java.math.BigDecimal;
 import java.util.InputMismatchException;

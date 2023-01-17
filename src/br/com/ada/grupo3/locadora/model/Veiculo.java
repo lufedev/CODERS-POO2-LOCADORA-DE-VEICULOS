@@ -1,5 +1,7 @@
 package br.com.ada.grupo3.locadora.model;
 
+import java.util.Collection;
+
 public class Veiculo implements Entidade {
 
     private String placa;
@@ -19,5 +21,9 @@ public class Veiculo implements Entidade {
     @Override
     public String getId() {
         return placa;
+    }
+
+    public String getModelo() {
+        return modelo;
     }
 }

@@ -5,7 +5,7 @@ import br.com.ada.grupo3.locadora.model.Agencia;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AgenciaEmMemoriaRepository extends RepositorioGenericoAbstract<Agencia> implements AgenciaRepository {
+public class AgenciaRepositoryInMemory extends GenericRepositoryInMemory<Agencia> implements AgenciaRepository {
 
     @Override
     public List<Agencia> buscarPeloLogradouro(String parteLogradouro) {

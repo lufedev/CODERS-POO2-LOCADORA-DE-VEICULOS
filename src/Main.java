@@ -1,38 +1,23 @@
+import br.com.ada.grupo3.locadora.domain.AgenciaManager;
 import br.com.ada.grupo3.locadora.model.Agencia;
-import br.com.ada.grupo3.locadora.model.Cliente;
 import br.com.ada.grupo3.locadora.model.Endereco;
-import br.com.ada.grupo3.locadora.model.TipoCliente;
-import br.com.ada.grupo3.locadora.persistence.AgenciaEmMemoriaRepository;
-import br.com.ada.grupo3.locadora.persistence.ClienteEmMemoriaRepository;
-
-import java.math.BigDecimal;
-import java.util.List;
+import br.com.ada.grupo3.locadora.persistence.*;
+import br.com.ada.grupo3.locadora.view.Menu;
+import br.com.ada.grupo3.locadora.view.MenuGeralFactory;
+import br.com.ada.grupo3.locadora.view.agencia.MenuAgenciasFactory;
 
 public class Main {
-
     public static void main(String[] args) {
 
-        ClienteEmMemoriaRepository clientRepository = new ClienteEmMemoriaRepository();
-        TipoCliente pf = new TipoCliente("Pessoa Fisica", new BigDecimal(5), 3);
-        Cliente c1 = new Cliente("Vinicius", "63513431007", pf);
-        Cliente c2 = new Cliente("Rodrigo", "48073096099", pf);
-        Cliente c3 = new Cliente("Ana", "3247899865", pf);
-        Cliente c4 = new Cliente("Jao", "3656475867", pf);
-        Cliente c5 = new Cliente("Ze", "987655467", pf);
+        AgenciaRepository agenciaRepository = new AgenciaRepositoryInMemory();
 
-        clientRepository.salvar(c1);
-        clientRepository.salvar(c2);
+        AgenciaManager gerenciadorDeAgencia = new AgenciaManager(agenciaRepository);
+        Agencia agencia = gerenciadorDeAgencia.criarAgencia("AG1", new Endereco("Av Central", 200, "Maringá", "PR"));
+//        System.out.println("Nova agência criada");
+//        System.out.println(agencia);
 
-        List<Cliente> vinis = clientRepository.buscarPeloNome("Vini");
-        Cliente ney = clientRepository.buscarPeloId("48073096099");
-
-        System.out.println(clientRepository.getEntidades());
-        System.out.println(vinis);
-        System.out.println(ney.getNome());
-
-        AgenciaEmMemoriaRepository agenciaRepository = new AgenciaEmMemoriaRepository();
-        agenciaRepository.salvar(new Agencia("AG1", new Endereco("Alameda Santos", 200, "São Paulo", "SP")));
-        Agencia ag1 = agenciaRepository.buscarPeloId("AG1");
-        System.out.println(ag1);
+        MenuAgenciasFactory menuAgenciasFactory = new MenuAgenciasFactory(gerenciadorDeAgencia);
+        Menu menuGeral = new MenuGeralFactory(menuAgenciasFactory).create();
+        menuGeral.agir();
     }
 }

@@ -1,6 +1,6 @@
 package br.com.ada.grupo3.locadora.persistence;
 
-public interface RepositoryGenerico<T> {
+public interface GenericRepository<T> {
 
     void salvar(T entidade);
 

@@ -1,6 +1,4 @@
-import br.com.ada.grupo3.locadora.view.ClientesMenu;
-
-import java.util.Scanner;
+package br.com.ada.grupo3.locadora.zold;
 
 public class LocadoraMain {
     public static void main(String[] args) {

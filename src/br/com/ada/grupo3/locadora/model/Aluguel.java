@@ -13,6 +13,7 @@ public class Aluguel implements Entidade {
     private Agencia agenciaDevolucao;
     private LocalDateTime dataRetirada;
     private LocalDateTime dataDevolucao;
+    private BigDecimal valorAluguel;
 
     public Aluguel(Cliente cliente, Veiculo veiculo, Agencia agenciaRetirada, Agencia agenciaDevolucao, LocalDateTime dataRetirada, LocalDateTime dataDevolucao) {
         this.id = UUID.randomUUID();
@@ -22,9 +23,11 @@ public class Aluguel implements Entidade {
         this.agenciaDevolucao = agenciaDevolucao;
         this.dataRetirada = dataRetirada;
         this.dataDevolucao = dataDevolucao;
+        this.valorAluguel = null;
     }
 
     public String getId() {
         return id.toString();
     }
+
 }

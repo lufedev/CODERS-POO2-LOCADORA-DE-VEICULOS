@@ -1,16 +1,16 @@
-package br.com.ada.grupo3.locadora.view;
+package br.com.ada.grupo3.locadora.domain;
 
-import br.com.ada.grupo3.locadora.ConsoleUIHelper;
+import br.com.ada.grupo3.locadora.zold.ConsoleUIHelper;
 import br.com.ada.grupo3.locadora.model.Endereco;
 import br.com.ada.grupo3.locadora.model.Cliente;
 import br.com.ada.grupo3.locadora.model.Telefone;
 import br.com.ada.grupo3.locadora.model.TipoCliente;
-import br.com.ada.grupo3.locadora.persistence.ClienteEmMemoriaRepository;
+import br.com.ada.grupo3.locadora.persistence.ClienteRepositoryInMemory;
 
 import java.math.BigDecimal;
 import java.util.List;
 
-public class ClienteController extends ClienteEmMemoriaRepository {
+public class ClienteManager extends ClienteRepositoryInMemory {
 
     public static void alterarInfos(Cliente cliente) {
         String escolha = Integer.toString(ConsoleUIHelper.askChooseOption("O que deseja alterar?", "Nome ", "documento", "E-mail", "Telefone", "Endereço"));

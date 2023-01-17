@@ -44,7 +44,11 @@ public class Telefone {
 
     @Override
     public String toString() {
-        return String.format("DDI: %s \n" + "DDD: %s \n" + "Número: %s \n", ddi, ddd, numero);
+        return String.format("""
+                DDI: %s
+                DDD: %s
+                Número: %s
+                """, ddi, ddd, numero);
     }
 
     @Override
