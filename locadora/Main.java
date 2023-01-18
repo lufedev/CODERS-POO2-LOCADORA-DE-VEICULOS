@@ -1,9 +1,9 @@
 package br.com.ada.grupo3.locadora;
 
-//import br.com.ada.grupo3.locadora.model.Agencia;
+import br.com.ada.grupo3.locadora.model.Agencia;
 import br.com.ada.grupo3.locadora.model.Cliente;
 import br.com.ada.grupo3.locadora.model.TipoCliente;
-//import br.com.ada.grupo3.locadora.persistence.AgenciaEmMemoriaRepository;
+import br.com.ada.grupo3.locadora.persistence.AgenciaEmMemoriaRepository;
 import br.com.ada.grupo3.locadora.persistence.ClienteEmMemoriaRepository;
 import br.com.ada.grupo3.locadora.view.cliente.MenuClienteFactory;
 

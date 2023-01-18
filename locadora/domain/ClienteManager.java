@@ -50,10 +50,11 @@ public class ClienteManager extends ClienteEmMemoriaRepository {
     }
 
     private TipoCliente cadastrarTipoCliente() {
-        int resposta = -9;
+        int resposta; boolean continuar;
         do {
             resposta = mensagens.pessoaFisicaOuJuridica();
-        }while(resposta <0 && resposta > 3);
+            continuar = resposta < 1 || resposta > 2;
+        }while(continuar);
         return (resposta == 1) ?
                 new TipoCliente("Pessoa Fisica", BigDecimal.valueOf(5), 5) :
                 new TipoCliente("Pessoa Juridica", BigDecimal.valueOf(10), 3);
@@ -126,12 +127,12 @@ public class ClienteManager extends ClienteEmMemoriaRepository {
         } else System.out.println(mensagens.listaVazia());
     }
     public void menuClienteCadastrar(){
-        int listaSize = clienteEmMemoriaRepository.getEntidades().size();
-        clienteEmMemoriaRepository.salvar(cadastrarCliente(mensagens.tipoCadastro()));
-        if (listaSize == clienteEmMemoriaRepository.getEntidades().size()) {
-            System.out.println(mensagens.falhaOperacao());
-        } else System.out.println(mensagens.operacaoSucesso());
-
+        Cliente cliente = cadastrarCliente(mensagens.tipoCadastro());
+        if (clienteEmMemoriaRepository.getEntidades().containsValue(cliente)) System.out.println(mensagens.falhaOperacao());
+        else {
+            clienteEmMemoriaRepository.salvar(cliente);
+            System.out.println(mensagens.operacaoSucesso());
+        }
     }
 //    public void listarClientes(){
 //        System.out.println(clienteEmMemoriaRepository.getEntidades());
