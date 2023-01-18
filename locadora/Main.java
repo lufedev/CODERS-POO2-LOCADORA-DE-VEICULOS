@@ -54,6 +54,8 @@ public class Main {
             menu.create().exibir();
             menu.create().agir();
             System.out.println("deseja continuar?");
+            System.out.println("1 -Sim");
+            System.out.println("2 -Nao");
             int resp = sc.nextInt();
             continuar = (resp==1) ? true : false;
         }while(continuar);

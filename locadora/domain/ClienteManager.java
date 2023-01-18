@@ -4,7 +4,7 @@ import br.com.ada.grupo3.locadora.model.Endereco;
 import br.com.ada.grupo3.locadora.model.Telefone;
 import br.com.ada.grupo3.locadora.model.TipoCliente;
 import br.com.ada.grupo3.locadora.persistence.ClienteEmMemoriaRepository;
-import br.com.ada.grupo3.locadora.view.cliente.Mensagens;
+import br.com.ada.grupo3.locadora.view.Mensagens;
 import java.math.BigDecimal;
 import java.util.List;
 

@@ -1,5 +1,7 @@
 package br.com.ada.grupo3.locadora.model;
 
+import java.util.Objects;
+
 public class Cliente implements Entidade {
 
     private String nome;
@@ -30,10 +32,6 @@ public class Cliente implements Entidade {
         this.email = email;
         this.endenreco = endenreco;
         this.telefone = telefone;
-    }
-
-    public String getDocumento() {
-        return documento;
     }
 
     public String getNome() {
@@ -67,6 +65,18 @@ public class Cliente implements Entidade {
 
     public void setTipoCliente(TipoCliente tipoCliente) {
         this.tipoCliente = tipoCliente;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Cliente cliente)) return false;
+        return Objects.equals(getNome(), cliente.getNome()) && Objects.equals(documento, cliente.documento);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getNome(), documento);
     }
 
     @Override
