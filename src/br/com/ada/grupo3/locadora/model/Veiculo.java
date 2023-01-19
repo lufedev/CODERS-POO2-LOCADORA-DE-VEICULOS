@@ -1,14 +1,12 @@
 package br.com.ada.grupo3.locadora.model;
 
-import java.util.Collection;
-
 public class Veiculo implements Entidade {
 
-    private String placa;
-    private String modelo;
-    private String fabricante;
-    private boolean disponivel;
-    private TipoVeiculo tipo;
+    private final String placa;
+    private final String modelo;
+    private final String fabricante;
+    private final boolean disponivel;
+    private final TipoVeiculo tipo;
 
     public Veiculo(String placa, String modelo, String fabricante, TipoVeiculo tipo) {
         this.placa = placa;
