@@ -1,6 +1,9 @@
 package br.com.ada.grupo3.locadora.view.aluguel;
 import java.time.format.DateTimeFormatter;
 import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
+
+import br.com.ada.grupo3.locadora.model.TipoVeiculo;
 import br.com.ada.grupo3.locadora.model.Veiculo;
 import br.com.ada.grupo3.locadora.domain.AluguelManager;
 import br.com.ada.grupo3.locadora.domain.VeiculoManager;
@@ -44,7 +47,7 @@ public class MenuAdicionarAluguel extends MenuAbstrato {
 //            nome = CapturadorDeEntrada.capturarString("nome da nova aluguel");
 //        }
 
-
+        Integer valor = 0;
         String cliente = CapturadorDeEntrada.capturarString("Id do cliente");
         String veiculo = CapturadorDeEntrada.capturarString("Id do veiculo");
         String agenciaRetirada = CapturadorDeEntrada.capturarString("Id da agencia de retirada");
@@ -56,10 +59,40 @@ public class MenuAdicionarAluguel extends MenuAbstrato {
         Integer diasAlugados = CapturadorDeEntrada.capturarInteger("Quantos dias planejados?");
 
         Veiculo v = gerenciadorDeVeiculo.buscarVeiculoPorID(veiculo);
-        System.out.println(v);
+
+
+        //Coletar o preço do veículo
+        TipoVeiculo tV = v.getTipo();
+
         //Aluguel aluguel = gerenciadorDeAluguel.criarAluguel(cliente, veiculo, agenciaRetirada, agenciaDevolucao, dataRetirada, diasAlugados);
 
         System.out.println("Aluguel adicionado com sucesso");
         System.out.println("Nova Aluguel:");
+
+        //Resultados serão printados sem inicializar o objeto, apenas para visualizar como seria a saída disso
+        System.out.println("=========CONTRATO==============");
+        System.out.println("Cliente: " + cliente);
+        System.out.println("Veiculo: Modelo: " + v.getModelo() +" placa: " + v.getId());
+        System.out.println("Agencia Retirada: " + agenciaRetirada);
+        System.out.println("Agencia Devolucao: " + agenciaDevolucao);
+        System.out.println("Data Retirada " + dataRetirada);
+        System.out.println("Data Prevista da devolução " + dataRetirada.plus(diasAlugados, ChronoUnit.DAYS));
+
+        //ADICIONAR DESCONTO NO CALCULO E MOVER ISSO PARA A CLASSE ALUGUEL
+        switch(tV.getDescricao()){
+            case ("Carro"):
+                valor = 150 * diasAlugados;
+                System.out.println("Valor total R$" + valor);
+                break;
+            case ("Moto"):
+                valor = 100 * diasAlugados;
+                System.out.println("Valor total R$" + valor);
+                break;
+            case ("Caminhão"):
+                valor = 200 * diasAlugados;
+                System.out.println("Valor total R$" + valor);
+                break;
+        }
+
     }
 }

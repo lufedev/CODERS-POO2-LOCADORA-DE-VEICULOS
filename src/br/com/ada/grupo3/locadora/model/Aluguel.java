@@ -14,7 +14,7 @@ public class Aluguel implements Entidade {
     private Agencia agenciaDevolucao;
     private LocalDateTime dataRetirada;
     private Integer diasAlugados;
-    private LocalDateTime dataDevolucao;
+    private LocalDateTime dataDevolucaoPrevista;
     private BigDecimal valorAluguel;
 
     public Aluguel(Cliente cliente, Veiculo veiculo, Agencia agenciaRetirada, Agencia agenciaDevolucao, LocalDateTime dataRetirada, Integer diasAlugados) {
@@ -24,7 +24,7 @@ public class Aluguel implements Entidade {
         this.agenciaRetirada = agenciaRetirada;
         this.agenciaDevolucao = agenciaDevolucao;
         this.dataRetirada = dataRetirada;
-        this.dataDevolucao = dataRetirada.plus(diasAlugados, ChronoUnit.DAYS) ;
+        this.dataDevolucaoPrevista = dataRetirada.plus(diasAlugados, ChronoUnit.DAYS) ;
         this.valorAluguel = null;
     }
 
