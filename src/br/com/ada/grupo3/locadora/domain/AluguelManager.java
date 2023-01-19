@@ -18,16 +18,19 @@ public class AluguelManager {
         this.aluguelRepository = aluguelRepository;
     }
 
-//    public Aluguel criarAluguel(String cliente, String veiculo, String agenciaRetirada, String agenciaDevolucao, LocalDateTime dataRetirada, Integer diasAlugados) {
-//        //public Aluguel criarAluguel(Cliente cliente, Veiculo veiculo, Agencia agenciaRetirada, Agencia agenciaDevolucao, LocalDateTime dataRetirada, Integer diasAlugados) {
-//
-//            //        if (existeAluguel(id)) {
-////            throw new RegistroDuplicadoException("Aluguel", id);
-////        }
-//
-//        Aluguel novaAluguel = new Aluguel(cliente, veiculo, agenciaRetirada, agenciaDevolucao, dataRetirada, diasAlugados);
-//        //aluguelRepository.salvar(novaAluguel);
-//        return novaAluguel;
+    public Aluguel criarAluguel(Cliente cliente,Cliente motorista, Veiculo veiculo, Agencia agenciaRetirada, Agencia agenciaDevolucao, LocalDateTime dataRetirada, Integer diasAlugados) {
+        //public Aluguel criarAluguel(Cliente cliente, Veiculo veiculo, Agencia agenciaRetirada, Agencia agenciaDevolucao, LocalDateTime dataRetirada, Integer diasAlugados) {
+
+            //        if (existeAluguel(id)) {
+//            throw new RegistroDuplicadoException("Aluguel", id);
+//        }
+
+        Aluguel novaAluguel = new Aluguel(cliente,motorista, veiculo, agenciaRetirada, agenciaDevolucao, dataRetirada, diasAlugados);
+        aluguelRepository.salvar(novaAluguel);
+        return novaAluguel;
+    }
+//    public Aluguel calcularPreco(){
+//        return aluguelRepository.calcularPreco();
 //    }
 
     public Aluguel buscarAluguelPorNome(String nome) {

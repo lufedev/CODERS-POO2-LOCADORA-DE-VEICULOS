@@ -1,6 +1,8 @@
 package br.com.ada.grupo3.locadora.view.aluguel;
 
 import br.com.ada.grupo3.locadora.domain.AluguelManager;
+import br.com.ada.grupo3.locadora.model.Aluguel;
+import br.com.ada.grupo3.locadora.view.CapturadorDeEntrada;
 import br.com.ada.grupo3.locadora.view.MenuAbstrato;
 
 public class MenuFinalizarAluguel extends MenuAbstrato {
@@ -13,20 +15,14 @@ public class MenuFinalizarAluguel extends MenuAbstrato {
 
     @Override
     public void acao() {
-//        String nome = CapturadorDeEntrada.capturarString("nome da nova aluguel");
-//
-//        while (gerenciadorDeAluguel.existeAluguel(nome)) {
-//            System.out.println("Já existe uma aluguel com o nome " + nome);
-//            nome = CapturadorDeEntrada.capturarString("nome da nova aluguel");
-//        }
-//        String logradouro = CapturadorDeEntrada.capturarString("logradouro da nova aluguel");
-//        int numero = CapturadorDeEntrada.capturarInteger("número da nova aluguel");
-//        String cidade = CapturadorDeEntrada.capturarString("cidade da nova aluguel");
-//        String uf = CapturadorDeEntrada.capturarString("UF da nova aluguel");
-//        Aluguel aluguel = gerenciadorDeAluguel.criarAluguel(nome, new Endereco(logradouro, numero, cidade, uf));
-//
-//        System.out.println("Aluguel adicionada com sucesso");
-//        System.out.println("Nova Aluguel:");
-//        System.out.println(aluguel);
+        String UUID = CapturadorDeEntrada.capturarString("UUID do aluguel: ");
+        Aluguel a = gerenciadorDeAluguel.buscarAluguelPorNome(UUID);
+        Integer diasAlugados = CapturadorDeEntrada.capturarInteger("Quantos dias planejados? ");
+
+        a.diaFinal(diasAlugados);
+        a.calcularPreco();
+        a.encerrarAluguel();
+
+
     }
 }

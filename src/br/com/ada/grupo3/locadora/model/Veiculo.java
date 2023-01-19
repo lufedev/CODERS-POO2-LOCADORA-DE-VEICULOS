@@ -27,7 +27,9 @@ public class Veiculo implements Entidade {
         return modelo;
     }
 
-    public TipoVeiculo getTipo() {return tipo;}
+    public TipoVeiculo getTipo() {
+        return tipo;
+    }
 
     @Override
     public String toString() {

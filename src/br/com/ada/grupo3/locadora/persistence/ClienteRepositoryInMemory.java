@@ -4,6 +4,7 @@ import br.com.ada.grupo3.locadora.model.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class ClienteRepositoryInMemory extends GenericRepositoryInMemory<Cliente> implements ClienteRepository {
     @Override
@@ -15,6 +16,9 @@ public class ClienteRepositoryInMemory extends GenericRepositoryInMemory<Cliente
             }
         }
         return clientesComParteDesseNome;
+    }
+    public Map<String, Cliente> getEntidades(){
+        return this.entidades;
     }
 }
 

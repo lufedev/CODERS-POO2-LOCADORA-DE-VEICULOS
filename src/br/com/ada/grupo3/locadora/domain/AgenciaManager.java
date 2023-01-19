@@ -36,11 +36,11 @@ public class AgenciaManager {
     public List<Agencia> buscarAgenciaPeloNome(String nome) {
         return agenciaRepository.buscarPeloNome(nome);
     }
-        public List<Agencia> buscarAgenciaPeloLogradouro(String logradouro) {
+    public List<Agencia> buscarAgenciaPeloLogradouro(String logradouro) {
         return agenciaRepository.buscarPeloLogradouro(logradouro);
     }
 
- public Agencia buscarAgenciaPorId(String nome) {
+    public Agencia buscarAgenciaPorId(String nome) {
         return agenciaRepository.buscarPeloId(nome);
     }
 
