@@ -4,6 +4,7 @@ import br.com.ada.grupo3.locadora.domain.ClienteManager;
 import br.com.ada.grupo3.locadora.view.Menu;
 import br.com.ada.grupo3.locadora.view.MenuComSubmenus;
 import br.com.ada.grupo3.locadora.view.MenuFactory;
+import br.com.ada.grupo3.locadora.view.MenuVolta;
 
 public class MenuClienteFactory implements MenuFactory {
 
@@ -35,8 +36,8 @@ public class MenuClienteFactory implements MenuFactory {
         Menu menuRemoverCliente = new MenuRemoverCliente(gerenciadorDeCliente);
         menuClientes.adicionarSubmenu(menuRemoverCliente);
 
-        Menu menuSair = new MenuSair();
-        menuClientes.adicionarSubmenu(menuSair);
+        Menu menuVolta = new MenuVolta();
+        menuClientes.adicionarSubmenu(menuVolta);
 
         return menuClientes;
     }

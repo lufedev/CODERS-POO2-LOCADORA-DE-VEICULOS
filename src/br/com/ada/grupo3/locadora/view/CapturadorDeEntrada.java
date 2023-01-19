@@ -1,12 +1,12 @@
 package br.com.ada.grupo3.locadora.view;
 
+import br.com.ada.grupo3.locadora.exception.DadoInvalidoException;
 import br.com.ada.grupo3.locadora.model.TipoVeiculo;
 
 import java.util.List;
 import java.util.Scanner;
 import java.math.BigDecimal;
 import java.util.InputMismatchException;
-import java.util.Scanner;
 public class CapturadorDeEntrada {
 
     private static final Scanner scanner = new Scanner(System.in);
@@ -16,8 +16,30 @@ public class CapturadorDeEntrada {
         return scanner.nextLine();
     }
 
+    public static String capturarStringNaoVazia(String nomeCampo) {
+        System.out.print("Informar %s: ".formatted(nomeCampo));
+
+        boolean repetir = true;
+        String retorno = "";
+
+        while (repetir) {
+            String valor = scanner.nextLine();
+            try {
+                retorno = valor.trim();
+                if (retorno.equals("")) {
+                    throw new DadoInvalidoException();
+                }
+                repetir = false;
+            } catch (DadoInvalidoException ex) {
+                System.out.println(ex.getMessage());
+                System.out.print("Informar %s, diferente de vazio: ".formatted(nomeCampo));
+            }
+        }
+        return retorno;
+    }
+
     public static Integer capturarInteger(String nomeCampo) {
-        System.out.print("Informar o número %s: ".formatted(nomeCampo));
+        System.out.print("Informar %s: ".formatted(nomeCampo));
 
         boolean repetir = true;
         int retorno = 0;
@@ -31,8 +53,30 @@ public class CapturadorDeEntrada {
                 }
                 repetir = false;
             } catch (NumberFormatException | NullPointerException ex) {
-                System.out.println("\u001B[31mO valor entrado não é válido!\u001B[0m");
+                System.out.print("\u001B[31mO dado entrado não é válido!\u001B[0m");
                 System.out.print("Entre com um número inteiro positivo: ");
+            }
+        }
+        return retorno;
+    }
+
+    public static BigDecimal capturarBigDecimal(String nomeCampo) {
+        System.out.print("Informar %s: ".formatted(nomeCampo));
+
+        boolean repetir = true;
+        BigDecimal retorno = BigDecimal.ZERO;
+
+        while (repetir) {
+            String valor = scanner.nextLine();
+            try {
+                retorno = BigDecimal.valueOf(Double.parseDouble(valor));
+                if (retorno.signum() == -1) {
+                    throw new NumberFormatException();
+                }
+                repetir = false;
+            } catch (InputMismatchException | NumberFormatException | NullPointerException ex) {
+                System.out.println("\u001B[31mO valor entrado não é válido!\u001B[0m");
+                System.out.print("Entre com um valor positivo: ");
             }
         }
         return retorno;
@@ -182,8 +226,6 @@ public class CapturadorDeEntrada {
         }
         return text;
     }
-
-
 }
 
 
