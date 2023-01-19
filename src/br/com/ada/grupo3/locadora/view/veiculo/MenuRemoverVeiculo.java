@@ -21,7 +21,7 @@ public class MenuRemoverVeiculo extends MenuAbstrato {
 
         while (!gerenciadorDeVeiculo.existeVeiculo(placa)) {
             System.out.println("Não existe um veiculo com a placa " + placa);
-            placa = CapturadorDeEntrada.capturarString("placa do veículo a ser alterado ou <0> para cancelar operacao");
+            placa = CapturadorDeEntrada.capturarString("placa do veículo a ser removido ou <0> para cancelar operacao");
             if (placa.equals("0")) return;
         }
         Veiculo veiculo = gerenciadorDeVeiculo.buscarVeiculoPorID(placa);

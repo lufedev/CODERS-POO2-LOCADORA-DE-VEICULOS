@@ -22,13 +22,13 @@ public class MenuGeralFactory implements MenuFactory {
 
     @Override
     public Menu create() {
-        MenuComSubmenus menuGeral = new MenuGeral("""
-                
+        MenuComSubmenus menuGeral = new MenuGeral("\u001B[32m" + """
+                                
                       ╦  ┌─┐┌─┐┌─┐┌┬┐┌─┐╔═╗┌─┐┬─┐
                       ║  │ ││  ├─┤ │ ├┤ ║  ├─┤├┬┘
                       ╩═╝└─┘└─┘┴ ┴ ┴ └─┘╚═╝┴ ┴┴└─
                           Locadora de Veículos
-                """);
+                """ + "\u001B[0m");
 
         Menu menuVeiculos = menuVeiculoFactory.create();
         menuGeral.adicionarSubmenu(menuVeiculos);

@@ -2,7 +2,7 @@ package br.com.ada.grupo3.locadora.model;
 
 import java.math.BigDecimal;
 
-public class TipoVeiculo {
+public class TipoVeiculo implements Entidade {
 
     private String descricao;
     private BigDecimal tarifa;
@@ -13,6 +13,11 @@ public class TipoVeiculo {
     }
 
     public String getDescricao() {
+        return descricao;
+    }
+
+    @Override
+    public String getId() {
         return descricao;
     }
 }

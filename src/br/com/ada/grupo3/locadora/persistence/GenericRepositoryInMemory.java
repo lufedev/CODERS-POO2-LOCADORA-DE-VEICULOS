@@ -28,7 +28,7 @@ public class GenericRepositoryInMemory<T extends Entidade> implements GenericRep
 
     @Override
     public List<T> listarTodos() {
-        return new ArrayList<T>(entidades.values());
+        return new ArrayList<>(entidades.values());
     }
 
     @Override
