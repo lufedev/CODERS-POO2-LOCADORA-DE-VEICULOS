@@ -15,12 +15,12 @@ public class AgenciaManager {
         this.agenciaRepository = agenciaRepository;
     }
 
-    public Agencia criarAgencia(String nome, Endereco endereco) {
+    public Agencia criarAgencia(String nome, Endereco endereco, String telefone) {
         if (existeAgencia(nome)) {
             throw new RegistroDuplicadoException("Agencia", nome);
         }
 
-        Agencia novaAgencia = new Agencia(nome, endereco);
+        Agencia novaAgencia = new Agencia(nome, endereco, telefone);
         agenciaRepository.salvar(novaAgencia);
         return novaAgencia;
     }

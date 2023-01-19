@@ -18,11 +18,11 @@ public class MenuAlterarAgencia extends MenuAbstrato {
     @Override
     public void acao() {
 
-        String nome = CapturadorDeEntrada.capturarString("nome da agência a ser alterado");
+        String nome = CapturadorDeEntrada.capturarString("nome da agência a ser alterado").toUpperCase();
 
         while (!gerenciadorDeAgencia.existeAgencia(nome)) {
             System.out.println("Não existe uma agência com o nome " + nome);
-            nome = CapturadorDeEntrada.capturarString("nome da agência a ser alterada ou <0> para cancelar operação");
+            nome = CapturadorDeEntrada.capturarString("nome da agência a ser alterada ou <0> para cancelar operação").toUpperCase();
             if (nome.equals("0")) return;
         }
         Agencia agencia = gerenciadorDeAgencia.buscarAgenciaPorId(nome);
@@ -31,9 +31,10 @@ public class MenuAlterarAgencia extends MenuAbstrato {
         int numero = CapturadorDeEntrada.capturarInteger("número da nova agência");
         String cidade = CapturadorDeEntrada.capturarString("cidade da nova agência");
         String uf = CapturadorDeEntrada.capturarString("UF da nova agência");
+        String telefone = CapturadorDeEntrada.capturarString("Telefone da nova agência");
 
         gerenciadorDeAgencia.removerAgencia(agencia);
-        agencia = gerenciadorDeAgencia.criarAgencia(nome, new Endereco(logradouro, numero, cidade, uf));
+        agencia = gerenciadorDeAgencia.criarAgencia(nome, new Endereco(logradouro, numero, cidade, uf), telefone);
 
         System.out.println("Agência editada com sucesso");
         System.out.println("Agência:");
