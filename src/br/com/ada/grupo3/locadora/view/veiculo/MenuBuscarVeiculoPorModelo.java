@@ -22,11 +22,11 @@ public class MenuBuscarVeiculoPorModelo extends MenuAbstrato {
 
         List<Veiculo> veiculosDoModeloBuscado = gerenciadorDeVeiculo.buscarVeiculoPorModelo(modelo);
 
-        if (veiculosDoModeloBuscado.size() >= 1) {
-            listarVeiculos(veiculosDoModeloBuscado);
+        if (veiculosDoModeloBuscado.isEmpty()) {
+            System.out.println("Não existe veículo com o modelo " + modelo);
             return;
         }
-        System.out.println("Não existe veículo com o modelo " + modelo);
+        listarVeiculos(veiculosDoModeloBuscado);
     }
 
     public void listarVeiculos(List<Veiculo> veiculos) {

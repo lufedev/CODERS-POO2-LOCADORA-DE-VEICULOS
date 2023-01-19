@@ -3,19 +3,14 @@ package br.com.ada.grupo3.locadora.model;
 public class Cliente implements Entidade {
 
     private String nome;
-    private String documento;
+    private final String documento;
     private String email;
-    private Endereco endereco;
-    private Telefone telefone;
+    private String endereco;
+    private String telefone;
     private final TipoCliente tipoCliente;
 
-    public Cliente(String nome, String documento, TipoCliente tipoCliente) {
-        this.nome = nome;
-        this.documento = documento;
-        this.tipoCliente = tipoCliente;
-    }
 
-    public Cliente(String nome, String documento, TipoCliente tipoCliente, String email, Endereco endereco, Telefone telefone) {
+    public Cliente(String nome,String documento, TipoCliente tipoCliente, String email, String endereco, String telefone) {
         this.nome = nome;
         this.documento = documento;
         this.tipoCliente = tipoCliente;
@@ -31,10 +26,9 @@ public class Cliente implements Entidade {
     public String getNome() {
         return nome;
     }
-
     @Override
     public String getId() {
-        return documento;
+        return this.getDocumento();
     }
 
     public void setNome(String nome) {
@@ -45,20 +39,26 @@ public class Cliente implements Entidade {
         this.email = email;
     }
 
-    public void setEndereco(Endereco endereco) {
+    public void setEndereco(String endereco) {
         this.endereco = endereco;
     }
 
-    public void setTelefone(Telefone telefone) {
+    public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
-
-    public void setDocumento(String documento) {
-        this.documento = documento;
+    public String getTipo(){
+        return tipoCliente.toString();
+    }
+    //devolve apenas "pessoa fisica"||"pessoa juridica"
+    public String getTipoRaw(){
+        return tipoCliente.rawString();
     }
 
     @Override
     public String toString() {
-        return "Cliente{" + "nome='" + nome + '\'' + ", documento='" + documento + '\'' + '}';
+        return "Cliente{" +
+                "nome='" + nome + '\'' +
+                ", documento='" + documento + '\'' +
+                ", " + tipoCliente ;
     }
 }

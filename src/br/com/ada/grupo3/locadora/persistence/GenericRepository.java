@@ -11,4 +11,5 @@ public interface GenericRepository<T> {
     List<T> listarTodos();
 
     T buscarPeloId(String identificador);
+
 }

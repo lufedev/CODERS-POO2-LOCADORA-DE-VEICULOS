@@ -28,6 +28,6 @@ public abstract class MenuAbstrato implements Menu {
     }
 
     private void exibirSeparador() {
-        System.out.println("------------------------------------------");
+        System.out.println("---------------------------------------");
     }
 }
