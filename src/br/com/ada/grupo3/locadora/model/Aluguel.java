@@ -59,9 +59,9 @@ public class Aluguel implements Entidade {
 
         }
         if (this.cliente.getTipoRaw().equals("Pessoa Fisica") && this.diasAlugados > 5) {
-            return ("Valor previsto: R$ " + (this.valorPrevisto.multiply(BigDecimal.valueOf(0.05)))+ "Desconto 5%");
+            return ("Valor previsto: R$ " + ((this.valorPrevisto.subtract(this.valorPrevisto.multiply(BigDecimal.valueOf(0.05))))+ "Desconto 5%");
         } else if (this.cliente.getTipoRaw().equals("Pessoa Juridica") && this.diasAlugados > 10){
-            return ("Valor previsto: R$ " + (this.valorPrevisto.multiply(BigDecimal.valueOf(0.10)))+ "Desconto 10%");
+            return ("Valor previsto: R$ " + ((this.valorPrevisto.subtract(this.valorPrevisto.multiply(BigDecimal.valueOf(0.10))))+ "Desconto 10%");
         }
         return ("Valor previsto: R$ " + this.valorPrevisto);
     };
