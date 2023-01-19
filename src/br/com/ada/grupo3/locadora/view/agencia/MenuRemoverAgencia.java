@@ -24,7 +24,7 @@ public class MenuRemoverAgencia extends MenuAbstrato {
             if (nome.equals("0")) return;
         }
 
-        Agencia agencia = gerenciadorDeAgencia.buscarAgenciaPorNome(nome);
+        Agencia agencia = gerenciadorDeAgencia.buscarAgenciaPorId(nome);
 
         gerenciadorDeAgencia.removerAgencia(agencia);
 

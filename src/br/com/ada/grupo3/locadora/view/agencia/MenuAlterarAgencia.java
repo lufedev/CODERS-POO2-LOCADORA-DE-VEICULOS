@@ -25,7 +25,7 @@ public class MenuAlterarAgencia extends MenuAbstrato {
             nome = CapturadorDeEntrada.capturarString("nome da agência a ser alterada ou <0> para cancelar operação");
             if (nome.equals("0")) return;
         }
-        Agencia agencia = gerenciadorDeAgencia.buscarAgenciaPorNome(nome);
+        Agencia agencia = gerenciadorDeAgencia.buscarAgenciaPorId(nome);
 
         String logradouro = CapturadorDeEntrada.capturarString("logradouro da nova agência");
         int numero = CapturadorDeEntrada.capturarInteger("número da nova agência");

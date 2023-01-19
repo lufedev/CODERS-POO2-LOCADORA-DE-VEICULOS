@@ -7,28 +7,27 @@ import br.com.ada.grupo3.locadora.view.MenuAbstrato;
 
 import java.util.List;
 
-public class MenuBuscarAgenciaPorNome extends MenuAbstrato {
+public class MenuBuscarAgenciaPorLogradouro extends MenuAbstrato {
 
     private final AgenciaManager gerenciadorDeAgencia;
 
-    public MenuBuscarAgenciaPorNome(AgenciaManager gerenciadorDeAgencia) {
-        super("Buscar agencia por parte do nome");
+    public MenuBuscarAgenciaPorLogradouro(AgenciaManager gerenciadorDeAgencia) {
+        super("Buscar agencia por parte do logradouro");
         this.gerenciadorDeAgencia = gerenciadorDeAgencia;
     }
 
     @Override
     public void acao() {
-        String nome = CapturadorDeEntrada.capturarString("nome da agencia buscada");
+        String parteDoLogradouro = CapturadorDeEntrada.capturarString("parte do logradouro da agencia buscada");
 
-        if (!gerenciadorDeAgencia.existeAgencia(nome)) {
-            System.out.println("Não existe agencia com o nome " + nome);
+        if (!gerenciadorDeAgencia.existeAgencia(parteDoLogradouro)) {
+            System.out.printf("Não existe agencia com a palavra %s no logradouro.%n", parteDoLogradouro);
             return;
         }
 
-        List<Agencia> agencias = gerenciadorDeAgencia.buscarAgenciaPeloNome(nome);
+        List<Agencia> agencias = gerenciadorDeAgencia.buscarAgenciaPeloLogradouro(parteDoLogradouro);
 
         System.out.println("Lista de agências encontradas:");
         agencias.forEach(System.out::println);
-
     }
 }
