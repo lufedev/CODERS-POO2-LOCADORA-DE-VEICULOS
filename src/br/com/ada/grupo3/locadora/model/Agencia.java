@@ -1,6 +1,5 @@
 package br.com.ada.grupo3.locadora.model;
 
-import java.util.Collection;
 
 public class Agencia implements Entidade {
 

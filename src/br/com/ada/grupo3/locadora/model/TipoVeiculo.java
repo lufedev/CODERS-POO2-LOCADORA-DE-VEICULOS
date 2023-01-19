@@ -4,8 +4,8 @@ import java.math.BigDecimal;
 
 public class TipoVeiculo implements Entidade {
 
-    private String descricao;
-    private BigDecimal tarifa;
+    private final String descricao;
+    private final BigDecimal tarifa;
 
     public TipoVeiculo(String descricao, BigDecimal tarifa) {
         this.descricao = descricao;
