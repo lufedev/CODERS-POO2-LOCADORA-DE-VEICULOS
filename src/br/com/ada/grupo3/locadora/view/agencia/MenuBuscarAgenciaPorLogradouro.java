@@ -20,12 +20,12 @@ public class MenuBuscarAgenciaPorLogradouro extends MenuAbstrato {
     public void acao() {
         String parteDoLogradouro = CapturadorDeEntrada.capturarString("parte do logradouro da agencia buscada");
 
-        if (!gerenciadorDeAgencia.existeAgencia(parteDoLogradouro)) {
+        List<Agencia> agencias = gerenciadorDeAgencia.buscarAgenciaPeloLogradouro(parteDoLogradouro);
+
+        if (agencias.isEmpty()) {
             System.out.printf("Não existe agencia com a palavra %s no logradouro.%n", parteDoLogradouro);
             return;
         }
-
-        List<Agencia> agencias = gerenciadorDeAgencia.buscarAgenciaPeloLogradouro(parteDoLogradouro);
 
         System.out.println("Lista de agências encontradas:");
         agencias.forEach(System.out::println);

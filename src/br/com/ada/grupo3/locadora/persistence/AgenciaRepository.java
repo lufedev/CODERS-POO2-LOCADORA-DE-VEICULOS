@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface AgenciaRepository extends GenericRepository<Agencia> {
 
-    List<Agencia> buscarPeloNome(String parteNome);
+    List<Agencia> buscarPeloNomeParcial(String parteNome);
 
-    List<Agencia> buscarPeloLogradouro(String parteLogradouro);
+    List<Agencia> buscarPeloLogradouroParcial(String parteLogradouro);
 }

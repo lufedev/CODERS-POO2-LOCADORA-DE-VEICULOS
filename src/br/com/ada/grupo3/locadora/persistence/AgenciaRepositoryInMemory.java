@@ -8,10 +8,10 @@ import java.util.List;
 public class AgenciaRepositoryInMemory extends GenericRepositoryInMemory<Agencia> implements AgenciaRepository {
 
     @Override
-    public List<Agencia> buscarPeloNome(String parteNome) {
+    public List<Agencia> buscarPeloNomeParcial(String parteNome) {
         List<Agencia> agenciasComParteDesseNome = new ArrayList<>();
         for (Agencia agencia : entidades.values()) {
-            if (agencia.getNome().contains(parteNome)) {
+            if (agencia.getNome().toLowerCase().contains(parteNome.toLowerCase())) {
                 agenciasComParteDesseNome.add(agencia);
             }
         }
@@ -19,10 +19,10 @@ public class AgenciaRepositoryInMemory extends GenericRepositoryInMemory<Agencia
     }
 
     @Override
-    public List<Agencia> buscarPeloLogradouro(String parteLogradouro) {
+    public List<Agencia> buscarPeloLogradouroParcial(String parteLogradouro) {
         List<Agencia> agenciasComParteDesseLogradouro = new ArrayList<>();
         for (Agencia agencia : entidades.values()) {
-            if (agencia.getLogradouro().contains(parteLogradouro)) {
+            if (agencia.getLogradouro().toLowerCase().contains(parteLogradouro.toLowerCase())) {
                 agenciasComParteDesseLogradouro.add(agencia);
             }
         }

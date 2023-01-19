@@ -53,7 +53,7 @@ public class CapturadorDeEntrada {
                 }
                 repetir = false;
             } catch (NumberFormatException | NullPointerException ex) {
-                System.out.print("\u001B[31mO dado entrado não é válido!\u001B[0m");
+                System.out.println("\u001B[31mO dado entrado não é válido!\u001B[0m");
                 System.out.print("Entre com um número inteiro positivo: ");
             }
         }

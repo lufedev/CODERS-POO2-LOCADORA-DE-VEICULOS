@@ -34,9 +34,14 @@ public class VeiculoManager {
         veiculoRepository.remover(veiculo);
     }
 
-    public List<Veiculo> buscarVeiculoPorModelo(String parteModelo) {
-        return veiculoRepository.buscarPeloModelo(parteModelo);
+    public List<Veiculo> buscarVeiculoPorModeloParcial(String parteModelo) {
+        return veiculoRepository.buscarPeloModeloParcial(parteModelo);
     }
+
+    public List<Veiculo> buscarVeiculoPelaPlacaParcial(String partePlaca) {
+        return veiculoRepository.buscarPelaPlacaParcial(partePlaca);
+    }
+
     public List<Veiculo> buscarTodosVeiculos() {
         return veiculoRepository.listarTodos();
     }

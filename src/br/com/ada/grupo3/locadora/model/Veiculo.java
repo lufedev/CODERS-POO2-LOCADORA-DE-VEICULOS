@@ -42,4 +42,8 @@ public class Veiculo implements Entidade {
                   disponível=> %s
                 """.formatted(tipo.getDescricao(), placa, modelo, fabricante,tipo.getTarifa(), disponivel);
     }
+
+    public String getPlaca() {
+        return placa;
+    }
 }
