@@ -18,13 +18,13 @@ public class MenuCadastrarTipoVeiculo extends MenuAbstrato {
 
     @Override
     public void acao() {
-        String descricao = CapturadorDeEntrada.capturarString("descrição do novo tipo de veículo");
+        String descricao = CapturadorDeEntrada.capturarStringNaoVazia("descrição do novo tipo de veículo");
 
         while (gerenciadorDeTipoVeiculo.existeTipoVeiculo(descricao)) {
             System.out.println("Já existe um tipo de veículo com essa descrição " + descricao);
-            descricao = CapturadorDeEntrada.capturarString("descrição do novo tipo de veículo");
+            descricao = CapturadorDeEntrada.capturarStringNaoVazia("descrição do novo tipo de veículo");
         }
-        BigDecimal tarifa = new BigDecimal(CapturadorDeEntrada.capturarString("tarifa para este tipo de veículo"));
+        BigDecimal tarifa = CapturadorDeEntrada.capturarBigDecimal("tarifa para este tipo de veículo");
         TipoVeiculo tipoVeiculo = gerenciadorDeTipoVeiculo.criarTipoVeiculo(descricao, tarifa);
 
         System.out.println("Tipo de veículo adicionado com sucesso");

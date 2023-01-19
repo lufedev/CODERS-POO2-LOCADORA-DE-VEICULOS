@@ -25,14 +25,14 @@ public class MenuCadastrarVeiculo extends MenuAbstrato {
             return;
         }
 
-        String placa = CapturadorDeEntrada.capturarString("placa do novo veiculo");
+        String placa = CapturadorDeEntrada.capturarStringNaoVazia("placa do novo veiculo");
 
         while (gerenciadorDeVeiculo.existeVeiculo(placa)) {
             System.out.println("Já existe uma veiculo com a placa " + placa);
             placa = CapturadorDeEntrada.capturarString("placa do novo veiculo");
         }
-        String modelo = CapturadorDeEntrada.capturarString("modelo do novo veiculo");
-        String fabricante = CapturadorDeEntrada.capturarString("fabricante do novo veiculo");
+        String modelo = CapturadorDeEntrada.capturarStringNaoVazia("modelo do novo veiculo");
+        String fabricante = CapturadorDeEntrada.capturarStringNaoVazia("fabricante do novo veiculo");
         TipoVeiculo tipo = CapturadorDeEntrada.capturaSelecao(tipoVeiculoRepository.listarTodos());
         Veiculo veiculo = gerenciadorDeVeiculo.criarVeiculo(placa, modelo, fabricante, tipo);
 

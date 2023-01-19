@@ -16,16 +16,16 @@ public class MenuCadastrarAgencia extends MenuAbstrato {
 
     @Override
     public void acao() {
-        String nome = CapturadorDeEntrada.capturarString("nome da nova agência");
+        String nome = CapturadorDeEntrada.capturarStringNaoVazia("nome da nova agência");
 
         while (gerenciadorDeAgencia.existeAgencia(nome)) {
             System.out.println("Já existe uma agência com o nome " + nome);
-            nome = CapturadorDeEntrada.capturarString("nome da nova agência");
+            nome = CapturadorDeEntrada.capturarStringNaoVazia("nome da nova agência");
         }
-        String logradouro = CapturadorDeEntrada.capturarString("logradouro da nova agência");
+        String logradouro = CapturadorDeEntrada.capturarStringNaoVazia("logradouro da nova agência");
         int numero = CapturadorDeEntrada.capturarInteger("número da nova agência");
-        String cidade = CapturadorDeEntrada.capturarString("cidade da nova agência");
-        String uf = CapturadorDeEntrada.capturarString("UF da nova agência");
+        String cidade = CapturadorDeEntrada.capturarStringNaoVazia("cidade da nova agência");
+        String uf = CapturadorDeEntrada.capturarStringNaoVazia("UF da nova agência");
         Agencia agencia = gerenciadorDeAgencia.criarAgencia(nome, new Endereco(logradouro, numero, cidade, uf));
 
         System.out.println("Agência adicionada com sucesso");
