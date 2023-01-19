@@ -102,8 +102,16 @@ public class CapturadorDeEntrada {
     }
 
     public static String askSimpleInput(String message) {
-        System.out.printf("%s%n# : ", message);
-        return new Scanner(System.in).nextLine().trim();
+        String texto = null;
+        boolean continuar = true;
+        while (continuar) {
+            System.out.printf("%s%n# : ", message);
+            texto = new Scanner(System.in).nextLine().trim();
+            if (texto.length()< 1) {
+                System.out.println("Digite um texto valido.");
+            }else continuar = false;
+        }
+        return texto;
     }
 
     public static String askNoEmptyInput(String message, int retries) {
@@ -128,10 +136,11 @@ public class CapturadorDeEntrada {
         int choose;
         do {
             try {
-                choose = sc.nextInt();
-            } catch (InputMismatchException e) {
+                choose = Integer.parseInt(sc.next());
+            } catch (InputMismatchException | NumberFormatException e) {
                 choose = -9;
             }
+            if (choose < 1 || choose > options.length) System.out.println("Digite um valor valido.");
         } while (choose < 1 || choose > options.length);
         return choose;
     }

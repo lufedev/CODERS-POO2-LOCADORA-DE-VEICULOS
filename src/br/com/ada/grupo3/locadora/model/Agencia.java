@@ -20,15 +20,17 @@ public class Agencia implements Entidade {
         return endereco.getLogradouro();
     }
 
+
     @Override
     public String toString() {
-        return "Agencia{" +
-                "nome='" + nome + '\'' +
-                ", logradouro='" + endereco.getLogradouro() + '\'' +
-                ", numero ='" + endereco.getNumero() + '\'' +
-                ", cidade ='" + endereco.getCidade() + '\'' +
-                ", uf ='" + endereco.getUf() + '\'' +
-                '}';
+        return String.format("""
+                        Agencia
+                        Nome: %s
+                        Logradouro: %s
+                        Numero: %s
+                        Cidade: %s
+                        UF: %s
+                        """, nome, endereco.getLogradouro(), endereco.getNumero(), endereco.getCidade(),endereco.getUf());
     }
 
     public String getNome() {

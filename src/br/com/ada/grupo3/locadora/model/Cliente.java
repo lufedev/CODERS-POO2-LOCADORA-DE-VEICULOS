@@ -54,11 +54,14 @@ public class Cliente implements Entidade {
         return tipoCliente.rawString();
     }
 
-    @Override
     public String toString() {
-        return "Cliente{" +
-                "nome='" + nome + '\'' +
-                ", documento='" + documento + '\'' +
-                ", " + tipoCliente ;
+        return String.format("""
+                        Cliente
+                        Nome: %s
+                        documento: %s
+                        E-mail: %s
+                        Endereço: %s
+                        Telefone: %s
+                        """, nome, documento, email, endereco, telefone);
     }
 }
