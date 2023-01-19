@@ -4,7 +4,7 @@ import br.com.ada.grupo3.locadora.domain.AgenciaManager;
 import br.com.ada.grupo3.locadora.view.Menu;
 import br.com.ada.grupo3.locadora.view.MenuComSubmenus;
 import br.com.ada.grupo3.locadora.view.MenuFactory;
-import br.com.ada.grupo3.locadora.view.veiculo.MenuSair;
+import br.com.ada.grupo3.locadora.view.MenuVolta;
 
 public class MenuAgenciaFactory implements MenuFactory {
 
@@ -24,8 +24,8 @@ public class MenuAgenciaFactory implements MenuFactory {
         Menu menuBuscarAgenciaPorNome = new MenuBuscarAgenciaPorNome(gerenciadorDeAgencia);
         menuAgencias.adicionarSubmenu(menuBuscarAgenciaPorNome);
 
-        Menu menuSair = new MenuSair();
-        menuAgencias.adicionarSubmenu(menuSair);
+        Menu menuVolta = new MenuVolta();
+        menuAgencias.adicionarSubmenu(menuVolta);
 
 
         return menuAgencias;

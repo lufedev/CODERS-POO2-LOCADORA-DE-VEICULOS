@@ -14,15 +14,6 @@ public class MenuBuscarClientePorNome extends MenuAbstrato {
 
     @Override
     public void acao() {
-//        String nome = CapturadorDeEntrada.capturarString("nome da cliente buscada");
-//
-//        if (!gerenciadorDeCliente.existeCliente(nome)) {
-//            System.out.println("Não existe cliente com o nome " + nome);
-//            return;
-//        }
-//
-//        Cliente cliente = gerenciadorDeCliente.buscarClientePorNome(nome);
-//        System.out.println("Cliente encontrada:");
-//        System.out.println(cliente);
+
     }
 }

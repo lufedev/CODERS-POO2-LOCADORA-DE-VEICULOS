@@ -3,7 +3,9 @@ package br.com.ada.grupo3.locadora.persistence;
 import br.com.ada.grupo3.locadora.model.Entidade;
 
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class GenericRepositoryInMemory<T extends Entidade> implements GenericRepository<T> {
@@ -22,6 +24,11 @@ public class GenericRepositoryInMemory<T extends Entidade> implements GenericRep
     @Override
     public void remover(T entidade) {
         this.entidades.remove(entidade.getId());
+    }
+
+    @Override
+    public List<T> listarTodos() {
+        return new ArrayList<T>(entidades.values());
     }
 
     @Override

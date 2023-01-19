@@ -26,18 +26,7 @@ public class VeiculoManager {
         return novoVeiculo;
     }
 
-    public Veiculo alterarVeiculo(String placa) {
-//        if (existeVeiculo(placa)) {
-//            throw new RegistroDuplicadoException("Veiculo", placa);
-//        }
-//
-//        Veiculo novoVeiculo = new Veiculo(placa, modelo, fabricante, tipo);
-//        veiculoRepository.salvar(novoVeiculo);
-//        return novoVeiculo;
-        return veiculoRepository.buscarPeloId("0");
-    }
-
-    public Veiculo buscarVeiculoPorID(String placa){
+    public Veiculo buscarVeiculoPorID(String placa) {
         return veiculoRepository.buscarPeloId(placa);
     }
 
@@ -45,9 +34,11 @@ public class VeiculoManager {
         veiculoRepository.remover(veiculo);
     }
 
-
     public List<Veiculo> buscarVeiculoPorModelo(String parteModelo) {
         return veiculoRepository.buscarPeloModelo(parteModelo);
+    }
+    public List<Veiculo> buscarTodosVeiculos() {
+        return veiculoRepository.listarTodos();
     }
 
     public boolean existeVeiculo(String placa) {

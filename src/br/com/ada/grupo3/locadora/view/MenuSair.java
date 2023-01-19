@@ -7,11 +7,8 @@ public class MenuSair extends MenuAbstrato {
     }
 
     @Override
-    public final void agir(){
+    public final void acao() {
         System.out.println("saindo do programa...");
         System.exit(0);
-    }
-    @Override
-    public final void acao() {
     }
 }
