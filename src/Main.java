@@ -38,7 +38,7 @@ public class Main {
         MenuVeiculoFactory menuVeiculoFactory = new MenuVeiculoFactory(gerenciadorDeVeiculo, tiposDeVeiculos);
         MenuAgenciaFactory menuAgenciaFactory = new MenuAgenciaFactory(gerenciadorDeAgencia);
         MenuClienteFactory menuClienteFactory = new MenuClienteFactory(gerenciadorDeCliente);
-        MenuAluguelFactory menuAluguelFactory = new MenuAluguelFactory(gerenciadorDeAluguel);
+        MenuAluguelFactory menuAluguelFactory = new MenuAluguelFactory(gerenciadorDeAluguel,gerenciadorDeCliente,gerenciadorDeAgencia,gerenciadorDeVeiculo);
 
         Menu menuGeral = new MenuGeralFactory(menuVeiculoFactory, menuAgenciaFactory, menuClienteFactory, menuAluguelFactory).create();
         menuGeral.agir();
