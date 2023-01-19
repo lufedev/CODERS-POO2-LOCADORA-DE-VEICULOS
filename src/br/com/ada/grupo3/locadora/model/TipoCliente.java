@@ -16,6 +16,11 @@ public class TipoCliente {
 
     @Override
     public String toString() {
-        return "TipoCliente{" + "descricao='" + descricao + '\'' + ", desconto=" + desconto + ", quantidadeDiasParaDesconto=" + quantidadeDiasParaDesconto + '}';
+        return "TipoCliente='" + descricao + '\'' +
+                '}';
+    }
+
+    public String rawString(){
+        return descricao;
     }
 }

@@ -48,5 +48,4 @@ public class AgenciaManager {
     public boolean existeAgencia(String nome) {
         return agenciaRepository.buscarPeloId(nome) != null;
     }
-
 }
