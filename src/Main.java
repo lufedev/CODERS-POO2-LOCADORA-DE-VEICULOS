@@ -1,7 +1,4 @@
-import br.com.ada.grupo3.locadora.domain.AgenciaManager;
-import br.com.ada.grupo3.locadora.domain.AluguelManager;
-import br.com.ada.grupo3.locadora.domain.ClienteManager;
-import br.com.ada.grupo3.locadora.domain.VeiculoManager;
+import br.com.ada.grupo3.locadora.domain.*;
 import br.com.ada.grupo3.locadora.model.TipoVeiculo;
 import br.com.ada.grupo3.locadora.persistence.*;
 import br.com.ada.grupo3.locadora.view.Menu;
@@ -24,23 +21,20 @@ public class Main {
         AgenciaRepository agenciaRepository = new AgenciaRepositoryInMemory();
         ClienteRepository clienteRepository = new ClienteRepositoryInMemory();
         AluguelRepository aluguelRepository = new AluguelRepositoryInMemory();
+        TipoVeiculoRepository tipoVeiculoRepository = new TipoVeiculoRepositoryInMemory();
 
         VeiculoManager gerenciadorDeVeiculo = new VeiculoManager(veiculoRepository);
         AgenciaManager gerenciadorDeAgencia = new AgenciaManager(agenciaRepository);
         ClienteManager gerenciadorDeCliente = new ClienteManager(clienteRepository);
         AluguelManager gerenciadorDeAluguel = new AluguelManager(aluguelRepository);
 
-        List<TipoVeiculo> tiposDeVeiculos = new ArrayList<>();
-        tiposDeVeiculos.add(new TipoVeiculo("Moto", new BigDecimal("100.00")));
-        tiposDeVeiculos.add(new TipoVeiculo("Carro", new BigDecimal("150.00")));
-        tiposDeVeiculos.add(new TipoVeiculo("Caminhão", new BigDecimal("200.00")));
-
-        MenuVeiculoFactory menuVeiculoFactory = new MenuVeiculoFactory(gerenciadorDeVeiculo, tiposDeVeiculos);
+        MenuVeiculoFactory menuVeiculoFactory = new MenuVeiculoFactory(gerenciadorDeVeiculo, tipoVeiculoRepository);
         MenuAgenciaFactory menuAgenciaFactory = new MenuAgenciaFactory(gerenciadorDeAgencia);
         MenuClienteFactory menuClienteFactory = new MenuClienteFactory(gerenciadorDeCliente);
         MenuAluguelFactory menuAluguelFactory = new MenuAluguelFactory(gerenciadorDeAluguel);
 
-        Menu menuGeral = new MenuGeralFactory(menuVeiculoFactory, menuAgenciaFactory, menuClienteFactory, menuAluguelFactory).create();
+        Menu menuGeral = new MenuGeralFactory(menuVeiculoFactory, menuAgenciaFactory, menuClienteFactory,
+                menuAluguelFactory).create();
         menuGeral.agir();
     }
 }

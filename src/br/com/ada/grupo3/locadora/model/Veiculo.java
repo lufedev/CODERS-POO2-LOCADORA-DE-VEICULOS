@@ -31,10 +31,11 @@ public class Veiculo implements Entidade {
     public String toString() {
         return """
                 %s
-                placa => %s
-                modelo => %s
-                fabricante => %s
-                disponível=> %s
-                """.formatted(tipo.getDescricao(), placa, modelo, fabricante, disponivel);
+                  placa => %s
+                  modelo => %s
+                  fabricante => %s
+                  tarifa => %s
+                  disponível=> %s
+                """.formatted(tipo.getDescricao(), placa, modelo, fabricante,tipo.getTarifa(), disponivel);
     }
 }

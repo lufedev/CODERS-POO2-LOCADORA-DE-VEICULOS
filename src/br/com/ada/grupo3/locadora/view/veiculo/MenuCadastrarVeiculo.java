@@ -3,24 +3,28 @@ package br.com.ada.grupo3.locadora.view.veiculo;
 import br.com.ada.grupo3.locadora.domain.VeiculoManager;
 import br.com.ada.grupo3.locadora.model.TipoVeiculo;
 import br.com.ada.grupo3.locadora.model.Veiculo;
+import br.com.ada.grupo3.locadora.persistence.TipoVeiculoRepository;
 import br.com.ada.grupo3.locadora.view.CapturadorDeEntrada;
 import br.com.ada.grupo3.locadora.view.MenuAbstrato;
-
-import java.util.List;
 
 public class MenuCadastrarVeiculo extends MenuAbstrato {
 
     private final VeiculoManager gerenciadorDeVeiculo;
-    private final List<TipoVeiculo> tiposDeVeiculos;
+    private final TipoVeiculoRepository tipoVeiculoRepository;
 
-    public MenuCadastrarVeiculo(VeiculoManager gerenciadorDeVeiculo, List<TipoVeiculo> tiposDeVeiculos) {
+    public MenuCadastrarVeiculo(VeiculoManager gerenciadorDeVeiculo, TipoVeiculoRepository tipoVeiculoRepository) {
         super("Adicionar veiculo");
         this.gerenciadorDeVeiculo = gerenciadorDeVeiculo;
-        this.tiposDeVeiculos = tiposDeVeiculos;
+        this.tipoVeiculoRepository = tipoVeiculoRepository;
     }
 
     @Override
     public void acao() {
+        if (tipoVeiculoRepository.listarTodos().isEmpty()) {
+            System.out.println("Não existe tipo de veículo cadastrado, cadastrar tipo de veículo antes de criar veículo");
+            return;
+        }
+
         String placa = CapturadorDeEntrada.capturarString("placa do novo veiculo");
 
         while (gerenciadorDeVeiculo.existeVeiculo(placa)) {
@@ -29,7 +33,7 @@ public class MenuCadastrarVeiculo extends MenuAbstrato {
         }
         String modelo = CapturadorDeEntrada.capturarString("modelo do novo veiculo");
         String fabricante = CapturadorDeEntrada.capturarString("fabricante do novo veiculo");
-        TipoVeiculo tipo = CapturadorDeEntrada.capturaSelecao(tiposDeVeiculos);
+        TipoVeiculo tipo = CapturadorDeEntrada.capturaSelecao(tipoVeiculoRepository.listarTodos());
         Veiculo veiculo = gerenciadorDeVeiculo.criarVeiculo(placa, modelo, fabricante, tipo);
 
         System.out.println("Veículo adicionado com sucesso");
