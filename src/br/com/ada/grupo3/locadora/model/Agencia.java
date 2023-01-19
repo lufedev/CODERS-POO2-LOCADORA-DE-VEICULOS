@@ -7,9 +7,16 @@ public class Agencia implements Entidade {
     private final String nome;
     private final Endereco endereco;
 
-    public Agencia(String nome, Endereco endereco) {
+    private final String telefone;
+
+    public Agencia(String nome, Endereco endereco, String telefone) {
         this.nome = nome;
         this.endereco = endereco;
+        this.telefone = telefone;
+    }
+
+    public String getTelefone(){
+        return telefone;
     }
 
     public String getId() {
@@ -30,7 +37,8 @@ public class Agencia implements Entidade {
                         Numero: %s
                         Cidade: %s
                         UF: %s
-                        """, nome, endereco.getLogradouro(), endereco.getNumero(), endereco.getCidade(),endereco.getUf());
+                        Telefone: %s
+                        """, nome, endereco.getLogradouro(), endereco.getNumero(), endereco.getCidade(),endereco.getUf(), telefone);
     }
 
     public String getNome() {
