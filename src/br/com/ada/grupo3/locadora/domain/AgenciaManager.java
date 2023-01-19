@@ -34,11 +34,11 @@ public class AgenciaManager {
     }
 
     public List<Agencia> buscarAgenciaPeloNome(String nome) {
-        return agenciaRepository.buscarPeloNome(nome);
+        return agenciaRepository.buscarPeloNomeParcial(nome);
     }
 
     public List<Agencia> buscarAgenciaPeloLogradouro(String logradouro) {
-        return agenciaRepository.buscarPeloLogradouro(logradouro);
+        return agenciaRepository.buscarPeloLogradouroParcial(logradouro);
     }
 
     public Agencia buscarAgenciaPorId(String nome) {

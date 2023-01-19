@@ -29,7 +29,7 @@ public class TipoVeiculoManager {
         tipoVeiculoRepository.remover(tipoVeiculo);
     }
 
-    public List<TipoVeiculo> buscarTodasTipoVeiculos() {
+    public List<TipoVeiculo> buscarTodosTipoVeiculos() {
         return tipoVeiculoRepository.listarTodos();
     }
     

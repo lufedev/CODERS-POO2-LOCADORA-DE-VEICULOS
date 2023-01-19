@@ -1,26 +1,26 @@
 package br.com.ada.grupo3.locadora.view.veiculo;
 
+import br.com.ada.grupo3.locadora.domain.TipoVeiculoManager;
 import br.com.ada.grupo3.locadora.domain.VeiculoManager;
 import br.com.ada.grupo3.locadora.model.TipoVeiculo;
 import br.com.ada.grupo3.locadora.model.Veiculo;
-import br.com.ada.grupo3.locadora.persistence.TipoVeiculoRepository;
 import br.com.ada.grupo3.locadora.view.CapturadorDeEntrada;
 import br.com.ada.grupo3.locadora.view.MenuAbstrato;
 
 public class MenuCadastrarVeiculo extends MenuAbstrato {
 
     private final VeiculoManager gerenciadorDeVeiculo;
-    private final TipoVeiculoRepository tipoVeiculoRepository;
+    private final TipoVeiculoManager gerenciadorTipoVeiculo;
 
-    public MenuCadastrarVeiculo(VeiculoManager gerenciadorDeVeiculo, TipoVeiculoRepository tipoVeiculoRepository) {
+    public MenuCadastrarVeiculo(VeiculoManager gerenciadorDeVeiculo, TipoVeiculoManager gerenciadorTipoVeiculo) {
         super("Adicionar veiculo");
         this.gerenciadorDeVeiculo = gerenciadorDeVeiculo;
-        this.tipoVeiculoRepository = tipoVeiculoRepository;
+        this.gerenciadorTipoVeiculo = gerenciadorTipoVeiculo;
     }
 
     @Override
     public void acao() {
-        if (tipoVeiculoRepository.listarTodos().isEmpty()) {
+        if (gerenciadorTipoVeiculo.buscarTodosTipoVeiculos().isEmpty()) {
             System.out.println("Não existe tipo de veículo cadastrado, cadastrar tipo de veículo antes de criar veículo");
             return;
         }
@@ -33,7 +33,7 @@ public class MenuCadastrarVeiculo extends MenuAbstrato {
         }
         String modelo = CapturadorDeEntrada.capturarStringNaoVazia("modelo do novo veiculo");
         String fabricante = CapturadorDeEntrada.capturarStringNaoVazia("fabricante do novo veiculo");
-        TipoVeiculo tipo = CapturadorDeEntrada.capturaSelecao(tipoVeiculoRepository.listarTodos());
+        TipoVeiculo tipo = CapturadorDeEntrada.capturaSelecao(gerenciadorTipoVeiculo.buscarTodosTipoVeiculos());
         Veiculo veiculo = gerenciadorDeVeiculo.criarVeiculo(placa, modelo, fabricante, tipo);
 
         System.out.println("Veículo adicionado com sucesso");

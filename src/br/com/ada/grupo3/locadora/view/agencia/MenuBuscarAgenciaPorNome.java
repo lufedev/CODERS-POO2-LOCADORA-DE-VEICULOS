@@ -19,16 +19,14 @@ public class MenuBuscarAgenciaPorNome extends MenuAbstrato {
     @Override
     public void acao() {
         String nome = CapturadorDeEntrada.capturarString("nome da agencia buscada");
+        List<Agencia> agencias = gerenciadorDeAgencia.buscarAgenciaPeloNome(nome);
 
-        if (!gerenciadorDeAgencia.existeAgencia(nome)) {
+        if (agencias.isEmpty()) {
             System.out.println("Não existe agencia com o nome " + nome);
             return;
         }
 
-        List<Agencia> agencias = gerenciadorDeAgencia.buscarAgenciaPeloNome(nome);
-
         System.out.println("Lista de agências encontradas:");
         agencias.forEach(System.out::println);
-
     }
 }

@@ -20,7 +20,7 @@ public class MenuBuscarVeiculoPorModelo extends MenuAbstrato {
     public void acao() {
         String modelo = CapturadorDeEntrada.capturarString("modelo do veículo buscado");
 
-        List<Veiculo> veiculosDoModeloBuscado = gerenciadorDeVeiculo.buscarVeiculoPorModelo(modelo);
+        List<Veiculo> veiculosDoModeloBuscado = gerenciadorDeVeiculo.buscarVeiculoPorModeloParcial(modelo);
 
         if (veiculosDoModeloBuscado.isEmpty()) {
             System.out.println("Não existe veículo com o modelo " + modelo);
