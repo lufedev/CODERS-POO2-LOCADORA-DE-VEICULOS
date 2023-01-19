@@ -4,7 +4,7 @@ import br.com.ada.grupo3.locadora.domain.AluguelManager;
 import br.com.ada.grupo3.locadora.view.Menu;
 import br.com.ada.grupo3.locadora.view.MenuComSubmenus;
 import br.com.ada.grupo3.locadora.view.MenuFactory;
-import br.com.ada.grupo3.locadora.view.veiculo.MenuSair;
+import br.com.ada.grupo3.locadora.view.MenuVolta;
 
 public class MenuAluguelFactory implements MenuFactory {
 
@@ -24,9 +24,8 @@ public class MenuAluguelFactory implements MenuFactory {
         Menu menuBuscarAluguelPorNome = new MenuBuscarAluguelPorNome(gerenciadorDeAluguel);
         menuAlugueis.adicionarSubmenu(menuBuscarAluguelPorNome);
 
-        Menu menuSair = new MenuSair();
-        menuAlugueis.adicionarSubmenu(menuSair);
-
+        Menu menuVolta = new MenuVolta();
+        menuAlugueis.adicionarSubmenu(menuVolta);
 
         return menuAlugueis;
     }
