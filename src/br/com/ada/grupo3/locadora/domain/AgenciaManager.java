@@ -5,7 +5,6 @@ import br.com.ada.grupo3.locadora.model.Agencia;
 import br.com.ada.grupo3.locadora.model.Endereco;
 import br.com.ada.grupo3.locadora.persistence.AgenciaRepository;
 
-
 public class AgenciaManager {
 
     private final AgenciaRepository agenciaRepository;
