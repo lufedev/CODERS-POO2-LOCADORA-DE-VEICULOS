@@ -3,7 +3,10 @@ package br.com.ada.grupo3.locadora.domain;
 import br.com.ada.grupo3.locadora.exception.RegistroDuplicadoException;
 import br.com.ada.grupo3.locadora.model.Agencia;
 import br.com.ada.grupo3.locadora.model.Endereco;
+import br.com.ada.grupo3.locadora.model.Veiculo;
 import br.com.ada.grupo3.locadora.persistence.AgenciaRepository;
+
+import java.util.List;
 
 public class AgenciaManager {
 
@@ -23,6 +26,14 @@ public class AgenciaManager {
         return novaAgencia;
     }
 
+    public void removerAgencia(Agencia agencia) {
+        agenciaRepository.remover(agencia);
+    }
+
+    public List<Agencia> buscarTodasAgencias() {
+        return agenciaRepository.listarTodos();
+    }
+
     public Agencia buscarAgenciaPorNome(String nome) {
         return agenciaRepository.buscarPeloId(nome);
     }
@@ -30,4 +41,5 @@ public class AgenciaManager {
     public boolean existeAgencia(String nome) {
         return agenciaRepository.buscarPeloId(nome) != null;
     }
+
 }
