@@ -1,21 +1,21 @@
 package br.com.ada.grupo3.locadora.view.veiculo;
 
+import br.com.ada.grupo3.locadora.domain.TipoVeiculoManager;
 import br.com.ada.grupo3.locadora.domain.VeiculoManager;
 import br.com.ada.grupo3.locadora.model.TipoVeiculo;
 import br.com.ada.grupo3.locadora.model.Veiculo;
-import br.com.ada.grupo3.locadora.persistence.TipoVeiculoRepository;
 import br.com.ada.grupo3.locadora.view.CapturadorDeEntrada;
 import br.com.ada.grupo3.locadora.view.MenuAbstrato;
 
 public class MenuAlterarVeiculo extends MenuAbstrato {
 
     private final VeiculoManager gerenciadorDeVeiculo;
-    private final TipoVeiculoRepository tipoVeiculoRepository;
+    private final TipoVeiculoManager gerenciadortipoVeiculo;
 
-    public MenuAlterarVeiculo(VeiculoManager gerenciadorDeVeiculo, TipoVeiculoRepository tipoVeiculoRepository) {
+    public MenuAlterarVeiculo(VeiculoManager gerenciadorDeVeiculo, TipoVeiculoManager gerenciadortipoVeiculo) {
         super("Alterar veiculo");
         this.gerenciadorDeVeiculo = gerenciadorDeVeiculo;
-        this.tipoVeiculoRepository = tipoVeiculoRepository;
+        this.gerenciadortipoVeiculo = gerenciadortipoVeiculo;
     }
 
     @Override
@@ -32,7 +32,7 @@ public class MenuAlterarVeiculo extends MenuAbstrato {
 
         String modelo = CapturadorDeEntrada.capturarString("modelo do veiculo");
         String fabricante = CapturadorDeEntrada.capturarString("fabricante do veiculo");
-        TipoVeiculo tipo = CapturadorDeEntrada.capturaSelecao(tipoVeiculoRepository.listarTodos());
+        TipoVeiculo tipo = CapturadorDeEntrada.capturaSelecao(gerenciadortipoVeiculo.buscarTodosTipoVeiculos());
         gerenciadorDeVeiculo.removerVeiculo(veiculo);
         veiculo = gerenciadorDeVeiculo.criarVeiculo(placa, modelo, fabricante, tipo);
 

@@ -18,7 +18,7 @@ public class MenuListarTiposVeiculo extends MenuAbstrato {
     @Override
     public void acao() {
 
-        List<TipoVeiculo> tiposVeiculos = gerenciadorDeTipoVeiculo.buscarTodasTipoVeiculos();
+        List<TipoVeiculo> tiposVeiculos = gerenciadorDeTipoVeiculo.buscarTodosTipoVeiculos();
 
         if (tiposVeiculos.isEmpty()) {
             System.out.println("A lista de tipos de veículos está vazia");
