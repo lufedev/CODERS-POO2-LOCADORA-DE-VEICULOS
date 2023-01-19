@@ -18,11 +18,13 @@ public class MenuCadastrarCliente extends MenuAbstrato {
     @Override
     public void acao() {
         Cliente cliente = gerenciadorDeCliente.cadastrarCliente();
-        if (!gerenciadorDeCliente.getEntidades().containsValue(cliente)){
+        if (gerenciadorDeCliente.getEntidades().get(cliente.getDocumento()) == null){
             gerenciadorDeCliente.salvar(cliente);
             System.out.println(mensagens.operacaoSucesso() + mensagens.clienteCadastrado());
         }
-        else  System.out.println(mensagens.falhaOperacao() + mensagens.tenteNovamente());
-
+        else{
+            System.out.println(mensagens.falhaOperacao() + mensagens.tenteNovamente());
+        }
     }
+
 }

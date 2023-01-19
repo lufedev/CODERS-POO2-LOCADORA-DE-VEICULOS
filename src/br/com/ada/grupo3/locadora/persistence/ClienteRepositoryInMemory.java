@@ -11,7 +11,7 @@ public class ClienteRepositoryInMemory extends GenericRepositoryInMemory<Cliente
     public List<Cliente> buscarPeloNome(String parteNome) {
         List<Cliente> clientesComParteDesseNome = new ArrayList<>();
         for (Cliente cliente : entidades.values()) {
-            if (cliente.getNome().contains(parteNome)) {
+            if (cliente.getNome().toLowerCase().contains(parteNome.toLowerCase())) {
                 clientesComParteDesseNome.add(cliente);
             }
         }
