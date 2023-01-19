@@ -36,6 +36,7 @@ public class AgenciaManager {
     public List<Agencia> buscarAgenciaPeloNome(String nome) {
         return agenciaRepository.buscarPeloNome(nome);
     }
+
     public List<Agencia> buscarAgenciaPeloLogradouro(String logradouro) {
         return agenciaRepository.buscarPeloLogradouro(logradouro);
     }
@@ -47,5 +48,4 @@ public class AgenciaManager {
     public boolean existeAgencia(String nome) {
         return agenciaRepository.buscarPeloId(nome) != null;
     }
-
 }

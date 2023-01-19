@@ -20,4 +20,16 @@ public class TipoVeiculo implements Entidade {
     public String getId() {
         return descricao;
     }
+
+    @Override
+    public String toString() {
+        return "TipoVeiculo{" +
+                "descricao='" + descricao + '\'' +
+                ", tarifa=" + tarifa +
+                '}';
+    }
+
+    public String getTarifa() {
+        return tarifa.toString();
+    }
 }

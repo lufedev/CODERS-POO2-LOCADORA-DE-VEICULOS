@@ -1,12 +1,13 @@
 package br.com.ada.grupo3.locadora.domain;
+
 import br.com.ada.grupo3.locadora.persistence.ClienteRepository;
+
 import br.com.ada.grupo3.locadora.view.Mensagens;
 import br.com.ada.grupo3.locadora.model.Cliente;
 import br.com.ada.grupo3.locadora.model.TipoCliente;
 import br.com.ada.grupo3.locadora.persistence.ClienteRepositoryInMemory;
 
 import java.math.BigDecimal;
-import java.util.List;
 
 public class ClienteManager extends ClienteRepositoryInMemory {
 
@@ -41,9 +42,9 @@ public class ClienteManager extends ClienteRepositoryInMemory {
 
     private TipoCliente cadastrarTipoCliente() {
         int resposta = -1;
-        while(resposta < 1 || resposta > 2) {
+        while (resposta < 1 || resposta > 2) {
             resposta = mensagens.pessoaFisicaOuJuridica();
-            if (resposta != 1 || resposta != 2){
+            if (resposta != 1 || resposta != 2) {
                 mensagens.valorInvalido();
             }
         }
@@ -51,5 +52,4 @@ public class ClienteManager extends ClienteRepositoryInMemory {
                 new TipoCliente("Pessoa Fisica", BigDecimal.valueOf(5), 5) :
                 new TipoCliente("Pessoa Juridica", BigDecimal.valueOf(10), 3);
     }
-
 }
