@@ -69,6 +69,14 @@ public class Aluguel implements Entidade {
     public void encerrarAluguel(){
         this.emAberto = false;
     }
+    public String getStatus(){
+        if(emAberto){
+            return( "Aberto");
+        }
+        else{
+            return ("Encerrado");
+        }
+    }
     public String getCliente() {
         return this.cliente.getNome();
     }
@@ -89,14 +97,18 @@ public class Aluguel implements Entidade {
     }
 
     public void diaFinal(Integer totalDias){
-        this.diasAlugados = totalDias;
+        if (!totalDias.equals(this.diasAlugados)){
+            this.diasAlugados = totalDias;
+            calcularPreco();
+        };
+
     };
 
     @Override
     public String toString(){
         return (
                 """
-                =========CONTRATO: %s ==============
+                ==========CONTRATO: %s STATUS: %s==============
                 Contratante: %s
                 Motorista: %s
                 Veiculo: %s
@@ -104,7 +116,7 @@ public class Aluguel implements Entidade {
                 %s
                 %s
              
-                """.formatted(id,cliente,motorista,veiculo,getAgencias(),getDatas(),calcularPreco()));
+                """.formatted(id,getStatus(),cliente,motorista,veiculo,getAgencias(),getDatas(),calcularPreco()));
     }
 }
 
