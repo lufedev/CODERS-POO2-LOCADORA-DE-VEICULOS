@@ -101,14 +101,8 @@ public class MenuAdicionarAluguel extends MenuAbstrato {
         System.out.println(c.getTipoRaw());
 
         //Resultados serão printados sem inicializar o objeto, apenas para visualizar como seria a saída disso
-        System.out.println("=========CONTRATO:" + aluguel.getId() + "==============");
-        System.out.println("Cliente: " + aluguel.getCliente());
-        System.out.println("Veiculo: "+aluguel.getVeiculo());
-        System.out.println(aluguel.getAgencias());
-        System.out.println(aluguel.getDatas());
-        System.out.println(aluguel.calcularPreco());
-//        System.out.println("Data Prevista da devolução " + dataRetirada.plus(diasAlugados, ChronoUnit.DAYS));
 
+        System.out.println(aluguel);
         //ADICIONAR DESCONTO NO CALCULO E MOVER ISSO PARA A CLASSE ALUGUEL
 
     }
