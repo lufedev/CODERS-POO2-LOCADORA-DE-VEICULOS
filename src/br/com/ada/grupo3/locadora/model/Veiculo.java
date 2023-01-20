@@ -9,7 +9,7 @@ public class Veiculo implements Entidade {
     private final TipoVeiculo tipo;
 
     public Veiculo(String placa, String modelo, String fabricante, TipoVeiculo tipo) {
-        this.placa = placa;
+        this.placa = placa.toLowerCase();
         this.modelo = modelo;
         this.fabricante = fabricante;
         this.tipo = tipo;

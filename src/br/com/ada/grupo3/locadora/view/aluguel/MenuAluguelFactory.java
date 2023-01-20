@@ -42,6 +42,12 @@ public class MenuAluguelFactory implements MenuFactory {
         Menu menuFinalizarAluguel = new MenuFinalizarAluguel(gerenciadorDeAluguel);
         menuAlugueis.adicionarSubmenu(menuFinalizarAluguel);
 
+        Menu menuAlugueisEmAberto = new MenuAlugueisEmAberto(gerenciadorDeAluguel);
+        menuAlugueis.adicionarSubmenu(menuAlugueisEmAberto);
+
+        Menu menuListarAlugueis = new MenuListarAlugueis(gerenciadorDeAluguel);
+        menuAlugueis.adicionarSubmenu(menuListarAlugueis);
+
         Menu menuVolta = new MenuVolta();
         menuAlugueis.adicionarSubmenu(menuVolta);
 

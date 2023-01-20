@@ -27,7 +27,7 @@ public class VeiculoManager {
     }
 
     public Veiculo buscarVeiculoPorID(String placa) {
-        return veiculoRepository.buscarPeloId(placa);
+        return veiculoRepository.buscarPeloId(placa.toLowerCase());
     }
 
     public void removerVeiculo(Veiculo veiculo) {

@@ -37,6 +37,12 @@ public class AluguelManager {
     public List<Aluguel> buscarAluguelPorNomeParcial (String parteUUID) {
         return aluguelRepository.buscarPeloNomeParcial(parteUUID);
     }
+    public  List<String> listarTodosAlugueis () {
+        return aluguelRepository.listarTodosAlugueis();
+    }
+    public  List<String> listarTodosAlugueisAbertos () {
+        return aluguelRepository.listarTodosAlugueisAbertos();
+    }
     public boolean existeAluguel(String UUID) {
         return aluguelRepository.buscarPeloId(UUID) != null;
     }

@@ -96,7 +96,6 @@ public class MenuAdicionarAluguel extends MenuAbstrato {
         Aluguel aluguel = gerenciadorDeAluguel.criarAluguel(c,m, v, a, a2, dataRetirada, diasAlugados);
 
         System.out.println("Aluguel adicionado com sucesso");
-        System.out.println(c.getTipoRaw());
 
         //Resultados serão printados sem inicializar o objeto, apenas para visualizar como seria a saída disso
 

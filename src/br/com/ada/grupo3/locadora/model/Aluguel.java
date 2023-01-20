@@ -112,6 +112,15 @@ public class Aluguel implements Entidade {
         this.agenciaRetirada = agenciaRetirada;
     }
 
+    public String basic(){
+        return ("""
+                ID: %s
+                STATUS: %s
+                CONTRATANTE: %s
+                
+                """.formatted(id,getStatus(),cliente));
+    }
+
     @Override
     public String toString(){
         return (
