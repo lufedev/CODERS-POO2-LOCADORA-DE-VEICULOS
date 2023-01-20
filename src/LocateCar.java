@@ -1,3 +1,4 @@
+import br.com.ada.grupo3.locadora.AgenciaUtilDatabase;
 import br.com.ada.grupo3.locadora.domain.*;
 import br.com.ada.grupo3.locadora.persistence.*;
 import br.com.ada.grupo3.locadora.view.Menu;
@@ -10,6 +11,7 @@ import br.com.ada.grupo3.locadora.view.veiculo.MenuVeiculoFactory;
 import java.math.BigDecimal;
 
 public class LocateCar {
+
 
     public static void main(String[] args) {
 
@@ -34,6 +36,8 @@ public class LocateCar {
 
         Menu menuGeral = new MenuGeralFactory(menuVeiculoFactory, menuAgenciaFactory, menuClienteFactory,
                 menuAluguelFactory).create();
+
+        AgenciaUtilDatabase.loadAgenciasFromFile(agenciaRepository);
         menuGeral.agir();
     }
 
@@ -42,4 +46,6 @@ public class LocateCar {
         gerenciadorTipoVeiculo.criarTipoVeiculo("Carro", BigDecimal.valueOf(150));
         gerenciadorTipoVeiculo.criarTipoVeiculo("Caminhão", BigDecimal.valueOf(200));
     }
+
+
 }
