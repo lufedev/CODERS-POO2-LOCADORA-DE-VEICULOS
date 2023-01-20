@@ -71,7 +71,6 @@ public class Aluguel implements Entidade {
         return ("Valor final => R$ " + this.valorPrevisto);
     };
     public void encerrarAluguel(){
-        this.veiculo.devolverCarro();
         this.emAberto = false;
     }
     public String getStatus(){
@@ -107,6 +106,7 @@ public class Aluguel implements Entidade {
     public void diaFinal(Integer totalDias){
         if (!totalDias.equals(this.diasAlugados)){
             this.diasAlugados = totalDias;
+            this.dataDevolucaoPrevista = dataRetirada.plus(diasAlugados, ChronoUnit.DAYS);
             calcularPreco();
         };
 

@@ -1,16 +1,21 @@
 package br.com.ada.grupo3.locadora.view.aluguel;
 
 import br.com.ada.grupo3.locadora.domain.AluguelManager;
+import br.com.ada.grupo3.locadora.domain.VeiculoManager;
 import br.com.ada.grupo3.locadora.model.Aluguel;
+import br.com.ada.grupo3.locadora.model.Veiculo;
 import br.com.ada.grupo3.locadora.view.CapturadorDeEntrada;
 import br.com.ada.grupo3.locadora.view.MenuAbstrato;
 
 public class MenuFinalizarAluguel extends MenuAbstrato {
 
     private final AluguelManager gerenciadorDeAluguel;
-    public MenuFinalizarAluguel(AluguelManager gerenciadorDeAluguel) {
+    private final VeiculoManager gerenciadorDeVeiculo;
+
+    public MenuFinalizarAluguel(AluguelManager gerenciadorDeAluguel, VeiculoManager gerenciadorDeVeiculo) {
         super("Finalizar aluguel");
         this.gerenciadorDeAluguel = gerenciadorDeAluguel;
+        this.gerenciadorDeVeiculo = gerenciadorDeVeiculo;
     }
 
     @Override
@@ -26,6 +31,9 @@ public class MenuFinalizarAluguel extends MenuAbstrato {
 
         a.diaFinal(diasAlugados);
         a.encerrarAluguel();
+
+        Veiculo v = gerenciadorDeVeiculo.buscarVeiculoPorID(a.getVeiculoId());
+        v.devolverCarro();
         System.out.println(a);
 
     }

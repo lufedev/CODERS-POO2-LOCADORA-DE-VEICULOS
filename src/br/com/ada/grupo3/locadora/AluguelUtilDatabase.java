@@ -66,7 +66,7 @@ public class AluguelUtilDatabase {
         return sb.toString();
     }
 
-    public static void loadAluguelFromFile(VeiculoManager gerenciadorDeVeiculo, AgenciaManager gerenciadorDeAgencia, ClienteManager gerenciadorDeCliente) {
+    public static void loadAluguelFromFile(AluguelRepository aluguelRepository,VeiculoManager gerenciadorDeVeiculo, AgenciaManager gerenciadorDeAgencia, ClienteManager gerenciadorDeCliente) {
 
 
         try {
@@ -133,6 +133,7 @@ public class AluguelUtilDatabase {
 //                    Agencia agenciaLida = new Agencia(nome, enderecoLido, telefone);
 //                    agenciaRepository.salvar(agenciaLida);
                     Aluguel aluguel = new Aluguel(c,m, v, a, a2, dataRetirada, diasAlugados);
+                    aluguelRepository.salvar(aluguel);
                 }
             }
             sc.close();

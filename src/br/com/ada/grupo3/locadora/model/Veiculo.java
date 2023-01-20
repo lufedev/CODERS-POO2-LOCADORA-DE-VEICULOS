@@ -64,9 +64,8 @@ public class Veiculo implements Entidade {
     public void alugarCarro(){
         this.disponivel = false;
     }
+    public void devolverCarro() {this.disponivel = true; }
 
-    public void devolverCarro(){
-        this.disponivel = true;
-    }
+
 
 }
