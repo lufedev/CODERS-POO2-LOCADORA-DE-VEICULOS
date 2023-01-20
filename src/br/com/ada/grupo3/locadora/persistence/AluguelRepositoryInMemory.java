@@ -18,5 +18,35 @@ public class AluguelRepositoryInMemory extends GenericRepositoryInMemory<Aluguel
         }
         return alugueisParaEsseCliente;
     }
+
+    @Override
+    public List<Aluguel> buscarPeloNomeParcial(String parteUUID){
+        List<Aluguel> alugueisComParteDessaUUID = new ArrayList<>();
+        for (Aluguel aluguel : entidades.values()){
+            if (aluguel.getId().toLowerCase().contains(parteUUID.toLowerCase())){
+                alugueisComParteDessaUUID.add(aluguel);
+            }
+        }
+        return alugueisComParteDessaUUID;
+    }
+
+ @Override
+  public List<String> listarTodosAlugueis (){
+        List<String> aluguelList = new ArrayList<>();
+        for (Aluguel aluguel : entidades.values()){
+                aluguelList.add(aluguel.basic());
+        }
+        return aluguelList;
+    }
+
+    public List<String> listarTodosAlugueisAbertos (){
+        List<String> aluguelList = new ArrayList<>();
+        for (Aluguel aluguel : entidades.values()){
+            if (aluguel.getStatus().equals("Aberto")){
+                aluguelList.add(aluguel.basic());
+            }
+        }
+        return aluguelList;
+    }
 }
 

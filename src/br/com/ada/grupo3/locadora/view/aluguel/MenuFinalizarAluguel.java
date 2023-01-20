@@ -15,14 +15,18 @@ public class MenuFinalizarAluguel extends MenuAbstrato {
 
     @Override
     public void acao() {
+
         String UUID = CapturadorDeEntrada.capturarString("UUID do aluguel: ");
+        if (!gerenciadorDeAluguel.existeAluguel(UUID)) {
+            System.out.println("Não existe aluguel com o nome " + UUID);
+            return;
+        }
         Aluguel a = gerenciadorDeAluguel.buscarAluguelPorNome(UUID);
-        Integer diasAlugados = CapturadorDeEntrada.capturarInteger("Quantos dias planejados? ");
+        Integer diasAlugados = CapturadorDeEntrada.capturarInteger("Veículo alugado por quantos dias? ");
 
         a.diaFinal(diasAlugados);
-        a.calcularPreco();
         a.encerrarAluguel();
-
+        System.out.println(a);
 
     }
 }

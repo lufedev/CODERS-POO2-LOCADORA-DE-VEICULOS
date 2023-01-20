@@ -1,6 +1,10 @@
+<<<<<<< HEAD
 import br.com.ada.grupo3.locadora.AgenciaUtilDatabase;
 import br.com.ada.grupo3.locadora.VeiculoUtilDatabase;
 import br.com.ada.grupo3.locadora.TipoVeiculoUtilDatabase;
+=======
+import br.com.ada.grupo3.locadora.AluguelUtilDatabase;
+>>>>>>> main
 import br.com.ada.grupo3.locadora.domain.*;
 import br.com.ada.grupo3.locadora.persistence.*;
 import br.com.ada.grupo3.locadora.view.Menu;
@@ -42,6 +46,9 @@ public class LocateCar {
         TipoVeiculoUtilDatabase.loadTipoVeiculoFromFile(tipoVeiculoRepository);
         inicializarGerenciadorTipoVeiculo(gerenciadorTipoVeiculo);
         VeiculoUtilDatabase.loadVeiculosFromFile(veiculoRepository);
+
+        //AluguelUtilDatabase.loadAluguelFromFile(gerenciadorDeVeiculo,gerenciadorDeAgencia,gerenciadorDeCliente);
+
         menuGeral.agir();
     }
 

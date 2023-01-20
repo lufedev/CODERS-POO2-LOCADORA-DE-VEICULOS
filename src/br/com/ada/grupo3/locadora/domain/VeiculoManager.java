@@ -29,7 +29,7 @@ public class VeiculoManager {
     }
 
     public Veiculo buscarVeiculoPorID(String placa) {
-        return veiculoRepository.buscarPeloId(placa);
+        return veiculoRepository.buscarPeloId(placa.toLowerCase());
     }
 
     public void removerVeiculo(Veiculo veiculo) {
@@ -42,7 +42,7 @@ public class VeiculoManager {
     }
 
     public List<Veiculo> buscarVeiculoPelaPlacaParcial(String partePlaca) {
-        return veiculoRepository.buscarPelaPlacaParcial(partePlaca);
+        return veiculoRepository.buscarPelaPlacaParcial(partePlaca.toLowerCase());
     }
 
     public List<Veiculo> buscarTodosVeiculos() {
@@ -50,6 +50,6 @@ public class VeiculoManager {
     }
 
     public boolean existeVeiculo(String placa) {
-        return veiculoRepository.buscarPeloId(placa) != null;
+        return veiculoRepository.buscarPeloId(placa.toLowerCase()) != null;
     }
 }
