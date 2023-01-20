@@ -52,13 +52,13 @@ public class MenuAdicionarAluguel extends MenuAbstrato {
 //        }
 
 
-        String cliente = CapturadorDeEntrada.capturarString("Documento do cliente: ");
-        String motorista = CapturadorDeEntrada.capturarString("Documento do Motorista: ");
-        String veiculo = CapturadorDeEntrada.capturarString("Placa do veiculo: ");
-        String agenciaRetirada = CapturadorDeEntrada.capturarString("Id da agencia de retirada: ");
-        String agenciaDevolucao = CapturadorDeEntrada.capturarString("Id da agencia de devoluçao: ");
+        String cliente = CapturadorDeEntrada.capturarString("Documento do cliente");
+        String motorista = CapturadorDeEntrada.capturarString("Documento do Motorista");
+        String veiculo = CapturadorDeEntrada.capturarString("Placa do veiculo");
+        String agenciaRetirada = CapturadorDeEntrada.capturarString("Id da agencia de retirada").toUpperCase();
+        String agenciaDevolucao = CapturadorDeEntrada.capturarString("Id da agencia de devoluçao").toUpperCase();
         LocalDateTime dataRetirada = LocalDateTime.now();
-        Integer diasAlugados = CapturadorDeEntrada.capturarInteger("Quantos dias planejados? ");
+        Integer diasAlugados = CapturadorDeEntrada.capturarInteger("Quantos dias planejados?");
 
         //Cliente C  e Motorista M
         Cliente c = gerenciadorDeCliente.buscarPeloId(cliente);
@@ -76,7 +76,7 @@ public class MenuAdicionarAluguel extends MenuAbstrato {
 
         //Resultados serão printados sem inicializar o objeto, apenas para visualizar como seria a saída disso
         System.out.println("=========CONTRATO:" + aluguel.getId() + "==============");
-        System.out.println("Cliente: " + aluguel.getCliente());
+        System.out.println("Cliente => " + aluguel.getCliente());
         System.out.println("Veiculo: "+aluguel.getVeiculo());
         System.out.println(aluguel.getAgencias());
         System.out.println(aluguel.getDatas());
