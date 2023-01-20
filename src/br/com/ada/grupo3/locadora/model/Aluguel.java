@@ -104,6 +104,14 @@ public class Aluguel implements Entidade {
 
     };
 
+    public void setAgenciaDevolucao(Agencia agenciaDevolucao) {
+        this.agenciaDevolucao = agenciaDevolucao;
+    }
+
+    public void setAgenciaRetirada(Agencia agenciaRetirada) {
+        this.agenciaRetirada = agenciaRetirada;
+    }
+
     @Override
     public String toString(){
         return (

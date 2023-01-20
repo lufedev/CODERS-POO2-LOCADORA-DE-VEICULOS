@@ -79,14 +79,14 @@ public class MenuAdicionarAluguel extends MenuAbstrato {
         String agenciaRetirada = CapturadorDeEntrada.capturarString("Id da agencia de retirada: ");
         Agencia a = gerenciadorDeAgencia.buscarAgenciaPorId(agenciaRetirada);
         if (a == null){
-            System.out.println("Agência inválida");
+            System.out.println("Agência inválida - CANCELANDO OPERAÇÃO");
             return;
         }
         String agenciaDevolucao = CapturadorDeEntrada.capturarString("Id da agencia de devoluçao: ");
 
         Agencia a2 = gerenciadorDeAgencia.buscarAgenciaPorId(agenciaRetirada);
         if (a2 == null){
-            System.out.println("Agência inválida");
+            System.out.println("Agência inválida - CANCELANDO OPERAÇÃO");
             return;
         }
 
