@@ -4,6 +4,7 @@ import br.com.ada.grupo3.locadora.domain.VeiculoManager;
 import br.com.ada.grupo3.locadora.model.Veiculo;
 import br.com.ada.grupo3.locadora.view.CapturadorDeEntrada;
 import br.com.ada.grupo3.locadora.view.MenuAbstrato;
+import br.com.ada.grupo3.locadora.view.PaginacaoListas;
 
 import java.util.List;
 
@@ -30,6 +31,8 @@ public class MenuBuscarVeiculoPorPlaca extends MenuAbstrato {
     }
 
     public void listarVeiculos(List<Veiculo> veiculosComPlacaBuscada) {
-        veiculosComPlacaBuscada.forEach(System.out::println);
+//        veiculosComPlacaBuscada.forEach(System.out::println);
+        PaginacaoListas.listarEmPaginas(veiculosComPlacaBuscada, "Lista de veículos encontrados");
+
     }
 }
