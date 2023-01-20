@@ -4,6 +4,7 @@ import br.com.ada.grupo3.locadora.domain.ClienteManager;
 import br.com.ada.grupo3.locadora.model.Cliente;
 import br.com.ada.grupo3.locadora.view.Mensagens;
 import br.com.ada.grupo3.locadora.view.MenuAbstrato;
+import br.com.ada.grupo3.locadora.view.PaginacaoListas;
 
 import java.util.List;
 
@@ -22,6 +23,6 @@ public class MenuBuscarClientePorNome extends MenuAbstrato {
     public void acao() {
         List<Cliente> listaCliente = gerenciadorDeCliente.buscarPeloNome(mensagens.nome()).stream().toList();
         if (listaCliente.isEmpty()) System.out.println(mensagens.falhaOperacao() + mensagens.clienteInexistente());
-        else listaCliente.forEach(System.out::println);
+        else PaginacaoListas.listarEmPaginas(listaCliente, "Lista de clientes encontrados");
     }
 }

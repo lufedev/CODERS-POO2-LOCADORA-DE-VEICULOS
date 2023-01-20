@@ -31,7 +31,6 @@ public class MenuBuscarVeiculoPorPlaca extends MenuAbstrato {
     }
 
     public void listarVeiculos(List<Veiculo> veiculosComPlacaBuscada) {
-//        veiculosComPlacaBuscada.forEach(System.out::println);
         PaginacaoListas.listarEmPaginas(veiculosComPlacaBuscada, "Lista de veículos encontrados");
 
     }

@@ -26,9 +26,6 @@ public class MenuBuscarAgenciaPorNome extends MenuAbstrato {
             System.out.println("Não existe agencia com o nome " + nome);
             return;
         }
-
-//        System.out.println("Lista de agências encontradas:");
-//        agencias.forEach(System.out::println);
         PaginacaoListas.listarEmPaginas(agencias, "Lista de agências encontradas");
 
     }

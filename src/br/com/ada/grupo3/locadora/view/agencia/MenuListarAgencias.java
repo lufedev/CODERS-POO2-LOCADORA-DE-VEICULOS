@@ -30,8 +30,6 @@ public class MenuListarAgencias extends MenuAbstrato {
     }
 
     public void listarAgencias(List<Agencia> agencias) {
-
-//        agencias.forEach(System.out::println);
         PaginacaoListas.listarEmPaginas(agencias, "Lista de agências");
     }
 }

@@ -30,7 +30,6 @@ public class MenuListarVeiculos extends MenuAbstrato {
     }
 
     public void listarVeiculos(List<Veiculo> veiculos) {
-//        veiculos.forEach(System.out::println);
         PaginacaoListas.listarEmPaginas(veiculos, "Lista de veículos");
 
     }
