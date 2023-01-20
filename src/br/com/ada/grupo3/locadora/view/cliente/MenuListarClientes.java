@@ -4,6 +4,7 @@ import br.com.ada.grupo3.locadora.domain.ClienteManager;
 import br.com.ada.grupo3.locadora.model.Cliente;
 import br.com.ada.grupo3.locadora.view.Mensagens;
 import br.com.ada.grupo3.locadora.view.MenuAbstrato;
+import br.com.ada.grupo3.locadora.view.PaginacaoListas;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -35,6 +36,7 @@ public class MenuListarClientes extends MenuAbstrato {
 
     public void listarClientes(List<Cliente> clientes) {
         clientes.forEach(System.out::println);
+        PaginacaoListas.listarEmPaginas(clientes, "Lista de clientes encontrados");
     }
 
 }

@@ -4,6 +4,7 @@ import br.com.ada.grupo3.locadora.domain.AgenciaManager;
 import br.com.ada.grupo3.locadora.model.Agencia;
 import br.com.ada.grupo3.locadora.view.CapturadorDeEntrada;
 import br.com.ada.grupo3.locadora.view.MenuAbstrato;
+import br.com.ada.grupo3.locadora.view.PaginacaoListas;
 
 import java.util.List;
 
@@ -27,7 +28,8 @@ public class MenuBuscarAgenciaPorLogradouro extends MenuAbstrato {
             return;
         }
 
-        System.out.println("Lista de agências encontradas:");
-        agencias.forEach(System.out::println);
+//        System.out.println("Lista de agências encontradas:");
+//        agencias.forEach(System.out::println);
+        PaginacaoListas.listarEmPaginas(agencias, "Lista de agências encontradas");
     }
 }

@@ -3,6 +3,7 @@ package br.com.ada.grupo3.locadora.view.agencia;
 import br.com.ada.grupo3.locadora.domain.AgenciaManager;
 import br.com.ada.grupo3.locadora.model.Agencia;
 import br.com.ada.grupo3.locadora.view.MenuAbstrato;
+import br.com.ada.grupo3.locadora.view.PaginacaoListas;
 
 import java.util.List;
 
@@ -29,6 +30,8 @@ public class MenuListarAgencias extends MenuAbstrato {
     }
 
     public void listarAgencias(List<Agencia> agencias) {
-        agencias.forEach(System.out::println);
+
+//        agencias.forEach(System.out::println);
+        PaginacaoListas.listarEmPaginas(agencias, "Lista de agências");
     }
 }

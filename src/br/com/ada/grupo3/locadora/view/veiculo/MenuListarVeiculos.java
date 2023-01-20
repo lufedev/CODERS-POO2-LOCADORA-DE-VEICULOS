@@ -3,6 +3,7 @@ package br.com.ada.grupo3.locadora.view.veiculo;
 import br.com.ada.grupo3.locadora.domain.VeiculoManager;
 import br.com.ada.grupo3.locadora.model.Veiculo;
 import br.com.ada.grupo3.locadora.view.MenuAbstrato;
+import br.com.ada.grupo3.locadora.view.PaginacaoListas;
 
 import java.util.List;
 
@@ -29,6 +30,8 @@ public class MenuListarVeiculos extends MenuAbstrato {
     }
 
     public void listarVeiculos(List<Veiculo> veiculos) {
-        veiculos.forEach(System.out::println);
+//        veiculos.forEach(System.out::println);
+        PaginacaoListas.listarEmPaginas(veiculos, "Lista de veículos");
+
     }
 }
