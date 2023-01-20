@@ -46,44 +46,44 @@ public class Aluguel implements Entidade {
         switch(tV.getDescricao()){
             case ("Carro"):
                 this.valorPrevisto  =BigDecimal.valueOf(150L * diasAlugados);
-                System.out.println("Valor total R$" + this.valorPrevisto );
+                System.out.println("Valor total => R$" + this.valorPrevisto );
                 break;
             case ("Moto"):
                 this.valorPrevisto  =BigDecimal.valueOf( 100L * diasAlugados);
-                System.out.println("Valor total R$" + this.valorPrevisto );
+                System.out.println("Valor total => R$" + this.valorPrevisto );
                 break;
             case ("Caminhão"):
                 this.valorPrevisto  = BigDecimal.valueOf(200L * diasAlugados);
-                System.out.println("Valor total R$" + this.valorPrevisto );
+                System.out.println("Valor total => R$" + this.valorPrevisto );
                 break;
 
         }
         if (this.cliente.getTipoRaw().equals("Pessoa Fisica") && this.diasAlugados > 5) {
-            return ("Valor previsto: R$ " + ((this.valorPrevisto.subtract(this.valorPrevisto.multiply(BigDecimal.valueOf(0.05))))+ "Desconto 5%"));
+            return ("Valor final => R$ " + ((this.valorPrevisto.subtract(this.valorPrevisto.multiply(BigDecimal.valueOf(0.05))))+ " (desconto 5%)"));
         } else if (this.cliente.getTipoRaw().equals("Pessoa Juridica") && this.diasAlugados > 10){
-            return ("Valor previsto: R$ " + ((this.valorPrevisto.subtract(this.valorPrevisto.multiply(BigDecimal.valueOf(0.10))))+ "Desconto 10%"));
+            return ("Valor final => R$ " + ((this.valorPrevisto.subtract(this.valorPrevisto.multiply(BigDecimal.valueOf(0.10))))+ " (desconto 10%)"));
         }
-        return ("Valor previsto: R$ " + this.valorPrevisto);
+        return ("Valor final => R$ " + this.valorPrevisto);
     };
     public void encerrarAluguel(){
         this.emAberto = false;
     }
-   public String getCliente() {
+    public String getCliente() {
         return this.cliente.getNome();
     }
     public String getVeiculo(){
         TipoVeiculo tV = this.veiculo.getTipo();
-        return ("ID: "+this.veiculo.getId() + "MODELO: " +this.veiculo.getModelo() + "TIPO: " + tV.getDescricao());
+        return ("\n   Id => "+this.veiculo.getId() + " | Modelo => " +this.veiculo.getModelo() + " | Tipo => " + tV.getDescricao());
     }
     public String getAgencias(){
         return(
-                "Agencia Retirada: " + this.agenciaRetirada + "Agencia Devolucao: " + this.agenciaDevolucao
-                );
+                "Agencia Retirada => " + this.agenciaRetirada + "\nAgencia Devolucao => " + this.agenciaDevolucao
+        );
     }
 
     public String getDatas(){
         return(
-                "Data Retirada: " + this.dataRetirada.format(DateTimeFormatter.ofPattern("dd-MM-yyyy")) + "Data Devolucao: " + this.dataDevolucaoPrevista.format(DateTimeFormatter.ofPattern("dd-MM-yyyy")) + "("+ diasAlugados + " dias)"
+                "Data Retirada => " + this.dataRetirada.format(DateTimeFormatter.ofPattern("dd-MM-yyyy")) + "\nData Devolucao => " + this.dataDevolucaoPrevista.format(DateTimeFormatter.ofPattern("dd-MM-yyyy")) + " ("+ diasAlugados + " dias)"
         );
     }
 
@@ -91,3 +91,4 @@ public class Aluguel implements Entidade {
         this.diasAlugados = totalDias;
     };
 }
+
