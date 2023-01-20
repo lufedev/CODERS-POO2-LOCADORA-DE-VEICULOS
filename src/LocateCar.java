@@ -1,4 +1,10 @@
+<<<<<<< HEAD
+import br.com.ada.grupo3.locadora.AgenciaUtilDatabase;
+import br.com.ada.grupo3.locadora.VeiculoUtilDatabase;
+import br.com.ada.grupo3.locadora.TipoVeiculoUtilDatabase;
+=======
 import br.com.ada.grupo3.locadora.AluguelUtilDatabase;
+>>>>>>> main
 import br.com.ada.grupo3.locadora.domain.*;
 import br.com.ada.grupo3.locadora.persistence.*;
 import br.com.ada.grupo3.locadora.view.Menu;
@@ -11,6 +17,7 @@ import br.com.ada.grupo3.locadora.view.veiculo.MenuVeiculoFactory;
 import java.math.BigDecimal;
 
 public class LocateCar {
+
 
     public static void main(String[] args) {
 
@@ -26,7 +33,6 @@ public class LocateCar {
         AluguelManager gerenciadorDeAluguel = new AluguelManager(aluguelRepository);
         TipoVeiculoManager gerenciadorTipoVeiculo = new TipoVeiculoManager(tipoVeiculoRepository);
 
-        inicializarGerenciadorTipoVeiculo(gerenciadorTipoVeiculo);
 
         MenuVeiculoFactory menuVeiculoFactory = new MenuVeiculoFactory(gerenciadorDeVeiculo, gerenciadorTipoVeiculo);
         MenuAgenciaFactory menuAgenciaFactory = new MenuAgenciaFactory(gerenciadorDeAgencia);
@@ -35,13 +41,29 @@ public class LocateCar {
 
         Menu menuGeral = new MenuGeralFactory(menuVeiculoFactory, menuAgenciaFactory, menuClienteFactory,
                 menuAluguelFactory).create();
+
+        AgenciaUtilDatabase.loadAgenciasFromFile(agenciaRepository);
+        TipoVeiculoUtilDatabase.loadTipoVeiculoFromFile(tipoVeiculoRepository);
+        inicializarGerenciadorTipoVeiculo(gerenciadorTipoVeiculo);
+        VeiculoUtilDatabase.loadVeiculosFromFile(veiculoRepository);
+
         //AluguelUtilDatabase.loadAluguelFromFile(gerenciadorDeVeiculo,gerenciadorDeAgencia,gerenciadorDeCliente);
+
         menuGeral.agir();
     }
 
     private static void inicializarGerenciadorTipoVeiculo(TipoVeiculoManager gerenciadorTipoVeiculo) {
-        gerenciadorTipoVeiculo.criarTipoVeiculo("Moto", BigDecimal.valueOf(100));
-        gerenciadorTipoVeiculo.criarTipoVeiculo("Carro", BigDecimal.valueOf(150));
-        gerenciadorTipoVeiculo.criarTipoVeiculo("Caminhão", BigDecimal.valueOf(200));
+        if (!gerenciadorTipoVeiculo.existeTipoVeiculo("Moto")) {
+            gerenciadorTipoVeiculo.criarTipoVeiculo("Moto", BigDecimal.valueOf(100));
+        }
+        if (!gerenciadorTipoVeiculo.existeTipoVeiculo("Carro")) {
+            gerenciadorTipoVeiculo.criarTipoVeiculo("Carro", BigDecimal.valueOf(150));
+        }
+        if (!gerenciadorTipoVeiculo.existeTipoVeiculo("Caminhão")) {
+            gerenciadorTipoVeiculo.criarTipoVeiculo("Caminhão", BigDecimal.valueOf(200));
+        }
+
     }
+
+
 }

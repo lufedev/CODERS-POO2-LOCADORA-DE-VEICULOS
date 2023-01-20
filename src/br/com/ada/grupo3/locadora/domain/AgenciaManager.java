@@ -1,5 +1,6 @@
 package br.com.ada.grupo3.locadora.domain;
 
+import br.com.ada.grupo3.locadora.AgenciaUtilDatabase;
 import br.com.ada.grupo3.locadora.exception.RegistroDuplicadoException;
 import br.com.ada.grupo3.locadora.model.Agencia;
 import br.com.ada.grupo3.locadora.model.Endereco;
@@ -22,11 +23,13 @@ public class AgenciaManager {
 
         Agencia novaAgencia = new Agencia(nome, endereco, telefone);
         agenciaRepository.salvar(novaAgencia);
+        AgenciaUtilDatabase.saveAgenciasBkp(agenciaRepository);
         return novaAgencia;
     }
 
     public void removerAgencia(Agencia agencia) {
         agenciaRepository.remover(agencia);
+        AgenciaUtilDatabase.saveAgenciasBkp(agenciaRepository);
     }
 
     public List<Agencia> buscarTodasAgencias() {

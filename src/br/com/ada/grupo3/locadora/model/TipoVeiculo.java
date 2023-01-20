@@ -32,4 +32,8 @@ public class TipoVeiculo implements Entidade {
     public String getTarifa() {
         return tarifa.toString();
     }
+
+    public String getString() {
+        return descricao + "$" + tarifa;
+    }
 }

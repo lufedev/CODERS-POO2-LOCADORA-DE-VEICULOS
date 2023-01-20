@@ -29,6 +29,10 @@ public class Veiculo implements Entidade {
         return tipo;
     }
 
+    public void setDisponivel(Boolean disponivel) {
+        this.disponivel = disponivel;
+    }
+
     @Override
     public String toString() {
         return """
@@ -38,11 +42,19 @@ public class Veiculo implements Entidade {
                   fabricante => %s
                   tarifa => %s
                   disponível=> %s
-                """.formatted(tipo.getDescricao(), placa, modelo, fabricante,tipo.getTarifa(), disponivel);
+                """.formatted(tipo.getDescricao(), placa, modelo, fabricante, tipo.getTarifa(), disponivel);
     }
 
     public String getPlaca() {
         return placa;
+    }
+
+    public String getFabricante() {
+        return fabricante;
+    }
+
+    public String getStrDisponivel() {
+        return String.valueOf(disponivel);
     }
 
     public Boolean getDisponivel(){
@@ -56,4 +68,5 @@ public class Veiculo implements Entidade {
     public void devolverCarro(){
         this.disponivel = true;
     }
+
 }
