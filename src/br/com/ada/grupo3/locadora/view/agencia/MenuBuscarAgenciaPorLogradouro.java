@@ -27,9 +27,6 @@ public class MenuBuscarAgenciaPorLogradouro extends MenuAbstrato {
             System.out.printf("Não existe agencia com a palavra %s no logradouro.%n", parteDoLogradouro);
             return;
         }
-
-//        System.out.println("Lista de agências encontradas:");
-//        agencias.forEach(System.out::println);
         PaginacaoListas.listarEmPaginas(agencias, "Lista de agências encontradas");
     }
 }

@@ -25,9 +25,7 @@ public class MenuRemoverVeiculo extends MenuAbstrato {
             if (placa.equals("0")) return;
         }
         Veiculo veiculo = gerenciadorDeVeiculo.buscarVeiculoPorID(placa);
-
         gerenciadorDeVeiculo.removerVeiculo(veiculo);
-
         System.out.printf("Veículo placa %s removido com sucesso%n", placa);
     }
 }

@@ -30,7 +30,6 @@ public class MenuListarTiposVeiculo extends MenuAbstrato {
     }
 
     public void listarTipoVeiculos(List<TipoVeiculo> tiposVeiculos) {
-//        tiposVeiculos.forEach(System.out::println);
         PaginacaoListas.listarEmPaginas(tiposVeiculos, "Lista de tipos de veículos encontrados");
     }
 }

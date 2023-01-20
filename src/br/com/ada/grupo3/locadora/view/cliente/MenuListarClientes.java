@@ -35,7 +35,6 @@ public class MenuListarClientes extends MenuAbstrato {
     }
 
     public void listarClientes(List<Cliente> clientes) {
-        clientes.forEach(System.out::println);
         PaginacaoListas.listarEmPaginas(clientes, "Lista de clientes encontrados");
     }
 
