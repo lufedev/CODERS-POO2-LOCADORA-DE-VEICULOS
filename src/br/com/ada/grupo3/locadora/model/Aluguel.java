@@ -9,7 +9,7 @@ import java.util.UUID;
 
 public class Aluguel implements Entidade {
     private boolean emAberto;
-    private UUID id;
+    private String id;
 
     private Cliente cliente;
     private Cliente motorista;
@@ -24,7 +24,7 @@ public class Aluguel implements Entidade {
 
     public Aluguel(Cliente cliente,Cliente motorista, Veiculo veiculo, Agencia agenciaRetirada, Agencia agenciaDevolucao, LocalDateTime dataRetirada, Integer diasAlugados) {
         this.emAberto = true;
-        this.id = UUID.randomUUID();
+        this.id = UUID.randomUUID().toString().substring(0,7);
         this.cliente = cliente;
         this.motorista = motorista;
         this.veiculo = veiculo;
@@ -36,8 +36,9 @@ public class Aluguel implements Entidade {
         this.valorAluguel = null;
     }
 
+    @Override
     public String getId() {
-        return id.toString();
+        return id;
     }
 
     public String calcularPreco(){
@@ -90,5 +91,20 @@ public class Aluguel implements Entidade {
     public void diaFinal(Integer totalDias){
         this.diasAlugados = totalDias;
     };
+
+    @Override
+    public String toString(){
+        return (
+                """
+                =========CONTRATO: %s ==============
+                Contratante: %s
+                Motorista: %s
+                Veiculo: %s
+                %s
+                %s
+                %s
+             
+                """.formatted(id,cliente,motorista,veiculo,getAgencias(),getDatas(),calcularPreco()));
+    }
 }
 

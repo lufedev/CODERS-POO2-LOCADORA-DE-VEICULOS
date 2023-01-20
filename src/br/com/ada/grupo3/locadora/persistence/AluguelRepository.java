@@ -9,4 +9,5 @@ public interface AluguelRepository extends GenericRepository<Aluguel> {
 
     List<Aluguel> buscarPeloCliente(Cliente cliente);
 
+    List<Aluguel> buscarPeloNomeParcial(String parteUUID);
 }
