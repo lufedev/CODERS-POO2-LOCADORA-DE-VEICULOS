@@ -1,3 +1,9 @@
+# Luiz Felipe
+# Natalia Stoll
+# Ian Paschoal
+# Adriano Dias
+# Matheus Camargo
+
 # CODERS-POO2-LOCADORA-DE-VEICULOS
 Trabalho do projeto Let's Code
 
