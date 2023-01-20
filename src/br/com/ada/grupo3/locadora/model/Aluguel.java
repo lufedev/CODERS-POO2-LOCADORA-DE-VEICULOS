@@ -44,21 +44,25 @@ public class Aluguel implements Entidade {
     public String calcularPreco(){
 
         TipoVeiculo tV = this.veiculo.getTipo();
-        switch(tV.getDescricao()){
-            case ("Carro"):
-                this.valorPrevisto  =BigDecimal.valueOf(150L * diasAlugados);
-                System.out.println("Valor total => R$" + this.valorPrevisto );
-                break;
-            case ("Moto"):
-                this.valorPrevisto  =BigDecimal.valueOf( 100L * diasAlugados);
-                System.out.println("Valor total => R$" + this.valorPrevisto );
-                break;
-            case ("Caminhão"):
-                this.valorPrevisto  = BigDecimal.valueOf(200L * diasAlugados);
-                System.out.println("Valor total => R$" + this.valorPrevisto );
-                break;
+//        switch(tV.getDescricao()){
+//            case ("Carro"):
+//                this.valorPrevisto  =BigDecimal.valueOf(150L * diasAlugados);
+//                System.out.println("Valor total => R$" + this.valorPrevisto );
+//                break;
+//            case ("Moto"):
+//                this.valorPrevisto  =BigDecimal.valueOf( 100L * diasAlugados);
+//                System.out.println("Valor total => R$" + this.valorPrevisto );
+//                break;
+//            case ("Caminhão"):
+//                this.valorPrevisto  = BigDecimal.valueOf(200L * diasAlugados);
+//                System.out.println("Valor total => R$" + this.valorPrevisto );
+//                break;
+//                }
+        Long tarifa = Long.valueOf(tV.getTarifa());
+        this.valorPrevisto  = BigDecimal.valueOf(tarifa * diasAlugados);
+        System.out.println("Valor total => R$" + this.valorPrevisto );
 
-        }
+
         if (this.cliente.getTipoRaw().equals("Pessoa Fisica") && this.diasAlugados > 5) {
             return ("Valor final => R$ " + ((this.valorPrevisto.subtract(this.valorPrevisto.multiply(BigDecimal.valueOf(0.05))))+ " (desconto 5%)"));
         } else if (this.cliente.getTipoRaw().equals("Pessoa Juridica") && this.diasAlugados > 10){
@@ -67,6 +71,7 @@ public class Aluguel implements Entidade {
         return ("Valor final => R$ " + this.valorPrevisto);
     };
     public void encerrarAluguel(){
+        this.veiculo.devolverCarro();
         this.emAberto = false;
     }
     public String getStatus(){

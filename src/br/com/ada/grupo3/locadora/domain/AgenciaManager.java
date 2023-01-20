@@ -34,7 +34,7 @@ public class AgenciaManager {
     }
 
     public List<Agencia> buscarAgenciaPeloNome(String nome) {
-        return agenciaRepository.buscarPeloNomeParcial(nome);
+        return agenciaRepository.buscarPeloNomeParcial(nome.toLowerCase());
     }
 
     public List<Agencia> buscarAgenciaPeloLogradouro(String logradouro) {
@@ -42,7 +42,7 @@ public class AgenciaManager {
     }
 
     public Agencia buscarAgenciaPorId(String nome) {
-        return agenciaRepository.buscarPeloId(nome);
+        return agenciaRepository.buscarPeloId(nome.toLowerCase());
     }
 
     public boolean existeAgencia(String nome) {

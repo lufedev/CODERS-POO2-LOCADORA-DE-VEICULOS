@@ -9,7 +9,7 @@ public class Agencia implements Entidade {
     private final String telefone;
 
     public Agencia(String nome, Endereco endereco, String telefone) {
-        this.nome = nome;
+        this.nome = nome.toLowerCase();
         this.endereco = endereco;
         this.telefone = telefone;
     }
