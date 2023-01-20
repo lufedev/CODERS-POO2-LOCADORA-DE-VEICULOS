@@ -51,23 +51,49 @@ public class MenuAdicionarAluguel extends MenuAbstrato {
 //            nome = CapturadorDeEntrada.capturarString("nome da nova aluguel");
 //        }
 
-
         String cliente = CapturadorDeEntrada.capturarString("Documento do cliente: ");
+        Cliente c = gerenciadorDeCliente.buscarPeloId(cliente);
+        if (c == null){
+            System.out.println("Cliente nao encontrado - CANCELANDO OPERAÇÃO");
+            return;
+        }
         String motorista = CapturadorDeEntrada.capturarString("Documento do Motorista: ");
+        Cliente m = gerenciadorDeCliente.buscarPeloId(motorista);
+        if (m == null){
+            System.out.println("Motorista nao encontrado - CANCELANDO OPERAÇÃO");
+            return;
+        }
         String veiculo = CapturadorDeEntrada.capturarString("Placa do veiculo: ");
+        Veiculo v = gerenciadorDeVeiculo.buscarVeiculoPorID(veiculo);
+        if (v == null){
+            System.out.println("Veiculo nao encontrado - CANCELANDO OPERAÇÃO");
+            return;
+        }
         String agenciaRetirada = CapturadorDeEntrada.capturarString("Id da agencia de retirada: ");
+        Agencia a = gerenciadorDeAgencia.buscarAgenciaPorId(agenciaRetirada);
+        if (a == null){
+            System.out.println("Veiculo nao encontrado - CANCELANDO OPERAÇÃO");
+            return;
+        }
         String agenciaDevolucao = CapturadorDeEntrada.capturarString("Id da agencia de devoluçao: ");
+
+        Agencia a2 = gerenciadorDeAgencia.buscarAgenciaPorId(agenciaRetirada);
+        if (a2 == null){
+            System.out.println("Veiculo nao encontrado");
+            return;
+        }
+
         LocalDateTime dataRetirada = LocalDateTime.now();
         Integer diasAlugados = CapturadorDeEntrada.capturarInteger("Quantos dias planejados? ");
 
         //Cliente C  e Motorista M
-        Cliente c = gerenciadorDeCliente.buscarPeloId(cliente);
-        Cliente m = gerenciadorDeCliente.buscarPeloId(motorista);
+
+
+
         //Veiculo V
-        Veiculo v = gerenciadorDeVeiculo.buscarVeiculoPorID(veiculo);
+
         //AgenciaRetirada A e AgenciaDevolucao A2
-        Agencia a = gerenciadorDeAgencia.buscarAgenciaPorId(agenciaRetirada);
-        Agencia a2 = gerenciadorDeAgencia.buscarAgenciaPorId(agenciaDevolucao);
+
 
         Aluguel aluguel = gerenciadorDeAluguel.criarAluguel(c,m, v, a, a2, dataRetirada, diasAlugados);
 
