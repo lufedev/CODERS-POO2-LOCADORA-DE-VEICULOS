@@ -1,5 +1,6 @@
 package br.com.ada.grupo3.locadora.domain;
 
+import br.com.ada.grupo3.locadora.TipoVeiculoUtilDatabase;
 import br.com.ada.grupo3.locadora.exception.RegistroDuplicadoException;
 import br.com.ada.grupo3.locadora.model.TipoVeiculo;
 import br.com.ada.grupo3.locadora.persistence.TipoVeiculoRepository;
@@ -22,11 +23,14 @@ public class TipoVeiculoManager {
 
         TipoVeiculo novoTipoVeiculo = new TipoVeiculo(descricao, tarifa);
         tipoVeiculoRepository.salvar(novoTipoVeiculo);
+        TipoVeiculoUtilDatabase.saveTipoVeiculosBkp(tipoVeiculoRepository);
         return novoTipoVeiculo;
     }
 
     public void removerTipoVeiculo(TipoVeiculo tipoVeiculo) {
         tipoVeiculoRepository.remover(tipoVeiculo);
+        TipoVeiculoUtilDatabase.saveTipoVeiculosBkp(tipoVeiculoRepository);
+
     }
 
     public List<TipoVeiculo> buscarTodosTipoVeiculos() {

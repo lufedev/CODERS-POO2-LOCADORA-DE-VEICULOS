@@ -66,8 +66,11 @@ public class AgenciaUtilDatabase {
                     String nome = rowData[1].trim();
                     String[] enderecoStr = rowData[2].split("\\$");
                     String telefone = rowData[3].trim();
+
                     Endereco enderecoLido = new Endereco(enderecoStr[0], Integer.parseInt(enderecoStr[1]), enderecoStr[2], enderecoStr[3]);
+
                     Agencia agenciaLida = new Agencia(nome, enderecoLido, telefone);
+
                     agenciaRepository.salvar(agenciaLida);
                 }
             }

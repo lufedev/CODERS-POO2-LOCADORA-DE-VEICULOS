@@ -1,5 +1,6 @@
 package br.com.ada.grupo3.locadora.domain;
 
+import br.com.ada.grupo3.locadora.VeiculoUtilDatabase;
 import br.com.ada.grupo3.locadora.exception.RegistroDuplicadoException;
 import br.com.ada.grupo3.locadora.model.TipoVeiculo;
 import br.com.ada.grupo3.locadora.model.Veiculo;
@@ -23,6 +24,7 @@ public class VeiculoManager {
 
         Veiculo novoVeiculo = new Veiculo(placa, modelo, fabricante, tipo);
         veiculoRepository.salvar(novoVeiculo);
+        VeiculoUtilDatabase.saveVeiculosBkp(veiculoRepository);
         return novoVeiculo;
     }
 
@@ -32,6 +34,7 @@ public class VeiculoManager {
 
     public void removerVeiculo(Veiculo veiculo) {
         veiculoRepository.remover(veiculo);
+        VeiculoUtilDatabase.saveVeiculosBkp(veiculoRepository);
     }
 
     public List<Veiculo> buscarVeiculoPorModeloParcial(String parteModelo) {

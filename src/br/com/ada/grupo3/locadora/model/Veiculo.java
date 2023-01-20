@@ -5,7 +5,7 @@ public class Veiculo implements Entidade {
     private final String placa;
     private final String modelo;
     private final String fabricante;
-    private final boolean disponivel;
+    private boolean disponivel;
     private final TipoVeiculo tipo;
 
     public Veiculo(String placa, String modelo, String fabricante, TipoVeiculo tipo) {
@@ -29,6 +29,10 @@ public class Veiculo implements Entidade {
         return tipo;
     }
 
+    public void setDisponivel(Boolean disponivel) {
+        this.disponivel = disponivel;
+    }
+
     @Override
     public String toString() {
         return """
@@ -38,10 +42,19 @@ public class Veiculo implements Entidade {
                   fabricante => %s
                   tarifa => %s
                   disponível=> %s
-                """.formatted(tipo.getDescricao(), placa, modelo, fabricante,tipo.getTarifa(), disponivel);
+                """.formatted(tipo.getDescricao(), placa, modelo, fabricante, tipo.getTarifa(), disponivel);
     }
 
     public String getPlaca() {
         return placa;
     }
+
+    public String getFabricante() {
+        return fabricante;
+    }
+
+    public String getStrDisponivel() {
+        return String.valueOf(disponivel);
+    }
+
 }
