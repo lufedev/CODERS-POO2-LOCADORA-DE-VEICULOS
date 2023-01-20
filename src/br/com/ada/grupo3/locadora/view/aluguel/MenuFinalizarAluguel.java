@@ -22,11 +22,12 @@ public class MenuFinalizarAluguel extends MenuAbstrato {
             return;
         }
         Aluguel a = gerenciadorDeAluguel.buscarAluguelPorNome(UUID);
-        Integer diasAlugados = CapturadorDeEntrada.capturarInteger("Veículo alugado por quantos dias? ");
+        Integer diasAlugados = CapturadorDeEntrada.capturarInteger("Quantos dias planejados? ");
 
         a.diaFinal(diasAlugados);
+        a.calcularPreco();
         a.encerrarAluguel();
-        System.out.println(a);
+
 
     }
 }

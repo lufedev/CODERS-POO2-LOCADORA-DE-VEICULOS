@@ -9,7 +9,7 @@ public class Agencia implements Entidade {
     private final String telefone;
 
     public Agencia(String nome, Endereco endereco, String telefone) {
-        this.nome = nome.toLowerCase();
+        this.nome = nome;
         this.endereco = endereco;
         this.telefone = telefone;
     }
@@ -26,6 +26,7 @@ public class Agencia implements Entidade {
         return endereco.getLogradouro();
     }
 
+    public Agencia getAgencia() {return new Agencia(this.nome, this.endereco, this.telefone); }
 
     @Override
     public String toString() {
@@ -42,5 +43,9 @@ public class Agencia implements Entidade {
 
     public String getNome() {
         return nome;
+    }
+
+    public Endereco getEndereco() {
+        return this.endereco;
     }
 }

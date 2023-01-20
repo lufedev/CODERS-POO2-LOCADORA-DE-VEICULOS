@@ -3,7 +3,6 @@ import br.com.ada.grupo3.locadora.model.Aluguel;
 import br.com.ada.grupo3.locadora.model.Cliente;
 import br.com.ada.grupo3.locadora.model.Veiculo;
 import br.com.ada.grupo3.locadora.model.Agencia;
-import br.com.ada.grupo3.locadora.AluguelUtilDatabase;
 import br.com.ada.grupo3.locadora.exception.RegistroDuplicadoException;
 import br.com.ada.grupo3.locadora.persistence.AluguelRepository;
 
@@ -25,7 +24,6 @@ public class AluguelManager {
 
         Aluguel novaAluguel = new Aluguel(cliente,motorista, veiculo, agenciaRetirada, agenciaDevolucao, dataRetirada, diasAlugados);
         aluguelRepository.salvar(novaAluguel);
-        AluguelUtilDatabase.saveAluguelBkp(aluguelRepository);
         return novaAluguel;
     }
 //    public Aluguel calcularPreco(){
@@ -38,12 +36,6 @@ public class AluguelManager {
 
     public List<Aluguel> buscarAluguelPorNomeParcial (String parteUUID) {
         return aluguelRepository.buscarPeloNomeParcial(parteUUID);
-    }
-    public  List<String> listarTodosAlugueis () {
-        return aluguelRepository.listarTodosAlugueis();
-    }
-    public  List<String> listarTodosAlugueisAbertos () {
-        return aluguelRepository.listarTodosAlugueisAbertos();
     }
     public boolean existeAluguel(String UUID) {
         return aluguelRepository.buscarPeloId(UUID) != null;

@@ -1,5 +1,6 @@
 package br.com.ada.grupo3.locadora.domain;
 
+import br.com.ada.grupo3.locadora.AgenciaUtilDataBase;
 import br.com.ada.grupo3.locadora.exception.RegistroDuplicadoException;
 import br.com.ada.grupo3.locadora.model.Agencia;
 import br.com.ada.grupo3.locadora.model.Endereco;
@@ -22,11 +23,13 @@ public class AgenciaManager {
 
         Agencia novaAgencia = new Agencia(nome, endereco, telefone);
         agenciaRepository.salvar(novaAgencia);
+        AgenciaUtilDataBase.saveAgenciasBkp(agenciaRepository);
         return novaAgencia;
     }
 
     public void removerAgencia(Agencia agencia) {
         agenciaRepository.remover(agencia);
+        AgenciaUtilDataBase.saveAgenciasBkp(agenciaRepository);
     }
 
     public List<Agencia> buscarTodasAgencias() {
@@ -34,7 +37,7 @@ public class AgenciaManager {
     }
 
     public List<Agencia> buscarAgenciaPeloNome(String nome) {
-        return agenciaRepository.buscarPeloNomeParcial(nome.toLowerCase());
+        return agenciaRepository.buscarPeloNomeParcial(nome);
     }
 
     public List<Agencia> buscarAgenciaPeloLogradouro(String logradouro) {
@@ -42,7 +45,7 @@ public class AgenciaManager {
     }
 
     public Agencia buscarAgenciaPorId(String nome) {
-        return agenciaRepository.buscarPeloId(nome.toLowerCase());
+        return agenciaRepository.buscarPeloId(nome);
     }
 
     public boolean existeAgencia(String nome) {

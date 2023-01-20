@@ -53,4 +53,16 @@ public class Endereco {
     public String getUf() {
         return uf;
     }
+
+    public String getString(){
+        StringBuilder sb = new StringBuilder();
+        sb.append(this.logradouro);
+        sb.append("$");
+        sb.append(this.numero);
+        sb.append("$");
+        sb.append(this.cidade);
+        sb.append("$");
+        sb.append(this.uf);
+        return sb.toString();
+    }
 }

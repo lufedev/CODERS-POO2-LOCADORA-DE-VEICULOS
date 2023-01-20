@@ -20,7 +20,7 @@ public class Cliente implements Entidade {
     }
 
     public String getDocumento() {
-        return documento;
+        return this.documento;
     }
 
     public String getNome() {
@@ -31,8 +31,22 @@ public class Cliente implements Entidade {
         return this.getDocumento();
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setNome(String nome) {this.nome = nome;}
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public TipoCliente getTipoCliente() {
+        return tipoCliente;
     }
 
     public void setEmail(String email) {
@@ -54,6 +68,8 @@ public class Cliente implements Entidade {
         return tipoCliente.rawString();
     }
 
+    public String getTipoDescricao() {return tipoCliente.getDescricao();}
+
     public String toString() {
         return String.format("""
                         Cliente
@@ -62,6 +78,8 @@ public class Cliente implements Entidade {
                         E-mail: %s
                         Endereço: %s
                         Telefone: %s
-                        """, nome, documento, email, endereco, telefone);
+                        Tipo de Cliente: %s
+                        """, nome, documento, email, endereco, telefone, getTipoDescricao());
     }
+
 }

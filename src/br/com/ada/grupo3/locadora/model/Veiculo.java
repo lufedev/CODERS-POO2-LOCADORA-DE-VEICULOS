@@ -5,11 +5,11 @@ public class Veiculo implements Entidade {
     private final String placa;
     private final String modelo;
     private final String fabricante;
-    private boolean disponivel;
+    private final boolean disponivel;
     private final TipoVeiculo tipo;
 
     public Veiculo(String placa, String modelo, String fabricante, TipoVeiculo tipo) {
-        this.placa = placa.toLowerCase();
+        this.placa = placa;
         this.modelo = modelo;
         this.fabricante = fabricante;
         this.tipo = tipo;
@@ -43,17 +43,5 @@ public class Veiculo implements Entidade {
 
     public String getPlaca() {
         return placa;
-    }
-
-    public Boolean getDisponivel(){
-        return disponivel;
-    }
-
-    public void alugarCarro(){
-        this.disponivel = false;
-    }
-
-    public void devolverCarro(){
-        this.disponivel = true;
     }
 }

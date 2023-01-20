@@ -69,33 +69,36 @@ public class MenuAdicionarAluguel extends MenuAbstrato {
             System.out.println("Veiculo nao encontrado - CANCELANDO OPERAÇÃO");
             return;
         }
-        if (v.getDisponivel()){
-            v.alugarCarro();
-        }
-        else{
-            System.out.println("Veículo já se encontra alugado! ");
-            return;
-        }
         String agenciaRetirada = CapturadorDeEntrada.capturarString("Id da agencia de retirada: ");
         Agencia a = gerenciadorDeAgencia.buscarAgenciaPorId(agenciaRetirada);
         if (a == null){
-            System.out.println("Agência inválida - CANCELANDO OPERAÇÃO");
+            System.out.println("Veiculo nao encontrado - CANCELANDO OPERAÇÃO");
             return;
         }
         String agenciaDevolucao = CapturadorDeEntrada.capturarString("Id da agencia de devoluçao: ");
 
         Agencia a2 = gerenciadorDeAgencia.buscarAgenciaPorId(agenciaRetirada);
         if (a2 == null){
-            System.out.println("Agência inválida - CANCELANDO OPERAÇÃO");
+            System.out.println("Veiculo nao encontrado");
             return;
         }
 
         LocalDateTime dataRetirada = LocalDateTime.now();
         Integer diasAlugados = CapturadorDeEntrada.capturarInteger("Quantos dias planejados? ");
 
+        //Cliente C  e Motorista M
+
+
+
+        //Veiculo V
+
+        //AgenciaRetirada A e AgenciaDevolucao A2
+
+
         Aluguel aluguel = gerenciadorDeAluguel.criarAluguel(c,m, v, a, a2, dataRetirada, diasAlugados);
 
         System.out.println("Aluguel adicionado com sucesso");
+        System.out.println(c.getTipoRaw());
 
         //Resultados serão printados sem inicializar o objeto, apenas para visualizar como seria a saída disso
 

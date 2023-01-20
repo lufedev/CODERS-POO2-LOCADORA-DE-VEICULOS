@@ -1,5 +1,6 @@
 package br.com.ada.grupo3.locadora.view.cliente;
 
+import br.com.ada.grupo3.locadora.ClienteUtilDataBase;
 import br.com.ada.grupo3.locadora.domain.ClienteManager;
 import br.com.ada.grupo3.locadora.model.Cliente;
 import br.com.ada.grupo3.locadora.view.Mensagens;
@@ -20,6 +21,7 @@ public class MenuRemoverCliente extends MenuAbstrato {
         Cliente cliente = gerenciadorDeCliente.buscarPeloId(mensagens.documento());
         if (gerenciadorDeCliente.getEntidades().containsValue(cliente)){
             gerenciadorDeCliente.remover(cliente);
+            ClienteUtilDataBase.saveClientesBkp(gerenciadorDeCliente);
             System.out.println(mensagens.operacaoSucesso() + mensagens.clienteRemovido());
 
         } else {
