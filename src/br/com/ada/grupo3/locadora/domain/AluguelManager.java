@@ -3,6 +3,7 @@ import br.com.ada.grupo3.locadora.model.Aluguel;
 import br.com.ada.grupo3.locadora.model.Cliente;
 import br.com.ada.grupo3.locadora.model.Veiculo;
 import br.com.ada.grupo3.locadora.model.Agencia;
+import br.com.ada.grupo3.locadora.AluguelUtilDatabase;
 import br.com.ada.grupo3.locadora.exception.RegistroDuplicadoException;
 import br.com.ada.grupo3.locadora.persistence.AluguelRepository;
 
@@ -24,6 +25,7 @@ public class AluguelManager {
 
         Aluguel novaAluguel = new Aluguel(cliente,motorista, veiculo, agenciaRetirada, agenciaDevolucao, dataRetirada, diasAlugados);
         aluguelRepository.salvar(novaAluguel);
+        AluguelUtilDatabase.saveAluguelBkp(aluguelRepository);
         return novaAluguel;
     }
 //    public Aluguel calcularPreco(){

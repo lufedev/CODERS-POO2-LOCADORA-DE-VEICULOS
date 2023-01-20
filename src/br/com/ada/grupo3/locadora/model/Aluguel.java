@@ -89,6 +89,9 @@ public class Aluguel implements Entidade {
         TipoVeiculo tV = this.veiculo.getTipo();
         return ("\n   Id => "+this.veiculo.getId() + " | Modelo => " +this.veiculo.getModelo() + " | Tipo => " + tV.getDescricao());
     }
+    public String getVeiculoId(){
+        return this.veiculo.getId();
+    }
     public String getAgencias(){
         return(
                 "Agencia Retirada => " + this.agenciaRetirada + "\nAgencia Devolucao => " + this.agenciaDevolucao
@@ -97,7 +100,7 @@ public class Aluguel implements Entidade {
 
     public String getDatas(){
         return(
-                "Data Retirada => " + this.dataRetirada.format(DateTimeFormatter.ofPattern("dd-MM-yyyy")) + "\nData Devolucao => " + this.dataDevolucaoPrevista.format(DateTimeFormatter.ofPattern("dd-MM-yyyy")) + " ("+ diasAlugados + " dias)"
+                "Data Retirada => " + this.dataRetirada.format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss")) + "\nData Devolucao => " + this.dataDevolucaoPrevista.format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss")) + " ("+ diasAlugados + " dias)"
         );
     }
 
@@ -115,6 +118,26 @@ public class Aluguel implements Entidade {
 
     public void setAgenciaRetirada(Agencia agenciaRetirada) {
         this.agenciaRetirada = agenciaRetirada;
+    }
+
+    public String getAgenciaDevolucaoId() {
+        return this.agenciaDevolucao.getId();
+    }
+
+    public String getAgenciaRetiradaId() {
+        return this.agenciaRetirada.getId();
+    }
+
+    public String getMotorista() {
+        return this.motorista.getNome();
+    }
+
+    public LocalDateTime getDataDevolucaoPrevista() {
+        return dataDevolucaoPrevista;
+    }
+
+    public Integer getDiasAlugados() {
+        return diasAlugados;
     }
 
     public String basic(){

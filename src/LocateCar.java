@@ -1,3 +1,4 @@
+import br.com.ada.grupo3.locadora.AluguelUtilDatabase;
 import br.com.ada.grupo3.locadora.domain.*;
 import br.com.ada.grupo3.locadora.persistence.*;
 import br.com.ada.grupo3.locadora.view.Menu;
@@ -34,6 +35,7 @@ public class LocateCar {
 
         Menu menuGeral = new MenuGeralFactory(menuVeiculoFactory, menuAgenciaFactory, menuClienteFactory,
                 menuAluguelFactory).create();
+        //AluguelUtilDatabase.loadAluguelFromFile(gerenciadorDeVeiculo,gerenciadorDeAgencia,gerenciadorDeCliente);
         menuGeral.agir();
     }
 
