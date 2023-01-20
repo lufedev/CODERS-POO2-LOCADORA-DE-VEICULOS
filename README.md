@@ -1,4 +1,4 @@
-### Luiz Felipe Ian Paschoal Matheus Camargo Natalia Stoll Adriano Dias
+### Luiz Felipe | Ian Paschoal | Matheus Camargo | Natalia Stoll | Adriano Dias
 
    
 # CODERS-POO2-LOCADORA-DE-VEICULOS
